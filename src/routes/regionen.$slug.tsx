@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getRegion, regions } from "@/lib/regions";
+import { getRegion, regions, type Region } from "@/lib/regions";
 
 export const Route = createFileRoute("/regionen/$slug")({
   loader: ({ params }) => {
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/regionen/$slug")({
 });
 
 function RegionDetail() {
-  const { region: r } = Route.useLoaderData();
+  const { region: r } = Route.useLoaderData() as { region: Region };
 
   return (
     <article>

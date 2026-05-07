@@ -9,38 +9,148 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SicherheitRouteImport } from './routes/sicherheit'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RegionenIndexRouteImport } from './routes/regionen.index'
+import { Route as RegionenSlugRouteImport } from './routes/regionen.$slug'
 
+const SicherheitRoute = SicherheitRouteImport.update({
+  id: '/sicherheit',
+  path: '/sicherheit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RegionenIndexRoute = RegionenIndexRouteImport.update({
+  id: '/regionen/',
+  path: '/regionen/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegionenSlugRoute = RegionenSlugRouteImport.update({
+  id: '/regionen/$slug',
+  path: '/regionen/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/faq': typeof FaqRoute
+  '/impressum': typeof ImpressumRoute
+  '/sicherheit': typeof SicherheitRoute
+  '/regionen/$slug': typeof RegionenSlugRoute
+  '/regionen/': typeof RegionenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/faq': typeof FaqRoute
+  '/impressum': typeof ImpressumRoute
+  '/sicherheit': typeof SicherheitRoute
+  '/regionen/$slug': typeof RegionenSlugRoute
+  '/regionen': typeof RegionenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/faq': typeof FaqRoute
+  '/impressum': typeof ImpressumRoute
+  '/sicherheit': typeof SicherheitRoute
+  '/regionen/$slug': typeof RegionenSlugRoute
+  '/regionen/': typeof RegionenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/datenschutz'
+    | '/faq'
+    | '/impressum'
+    | '/sicherheit'
+    | '/regionen/$slug'
+    | '/regionen/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/datenschutz'
+    | '/faq'
+    | '/impressum'
+    | '/sicherheit'
+    | '/regionen/$slug'
+    | '/regionen'
+  id:
+    | '__root__'
+    | '/'
+    | '/datenschutz'
+    | '/faq'
+    | '/impressum'
+    | '/sicherheit'
+    | '/regionen/$slug'
+    | '/regionen/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  FaqRoute: typeof FaqRoute
+  ImpressumRoute: typeof ImpressumRoute
+  SicherheitRoute: typeof SicherheitRoute
+  RegionenSlugRoute: typeof RegionenSlugRoute
+  RegionenIndexRoute: typeof RegionenIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sicherheit': {
+      id: '/sicherheit'
+      path: '/sicherheit'
+      fullPath: '/sicherheit'
+      preLoaderRoute: typeof SicherheitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +158,42 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/regionen/': {
+      id: '/regionen/'
+      path: '/regionen'
+      fullPath: '/regionen/'
+      preLoaderRoute: typeof RegionenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/regionen/$slug': {
+      id: '/regionen/$slug'
+      path: '/regionen/$slug'
+      fullPath: '/regionen/$slug'
+      preLoaderRoute: typeof RegionenSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  FaqRoute: FaqRoute,
+  ImpressumRoute: ImpressumRoute,
+  SicherheitRoute: SicherheitRoute,
+  RegionenSlugRoute: RegionenSlugRoute,
+  RegionenIndexRoute: RegionenIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

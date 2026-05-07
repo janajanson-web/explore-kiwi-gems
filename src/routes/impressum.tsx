@@ -32,6 +32,22 @@ function Imprint() {
         <h2 className="mt-8 font-display text-xl font-bold">Urheberrecht</h2>
         <p>Sämtliche Inhalte (Texte, Bilder, Grafiken) unterliegen dem Urheberrecht. Eine Verwendung außerhalb der gesetzlich zulässigen Grenzen bedarf der schriftlichen Zustimmung.</p>
 
+        <h2 className="mt-8 font-display text-xl font-bold">Bildnachweise</h2>
+        <p>
+          Sämtliche auf dieser Website verwendeten Fotografien stammen von{" "}
+          <a className="text-primary underline" href="https://unsplash.com/" target="_blank" rel="noreferrer">Unsplash</a>{" "}
+          und werden unter der{" "}
+          <a className="text-primary underline" href="https://unsplash.com/license" target="_blank" rel="noreferrer">Unsplash-Lizenz</a>{" "}
+          kostenfrei zur kommerziellen und nicht-kommerziellen Nutzung bereitgestellt. Wir danken den Fotografinnen und Fotografen der Unsplash-Community für die Bereitstellung ihrer Werke.
+        </p>
+        <ul>
+          <li>Hero-Bild „Neuseeland-Landschaft“ – Quelle: unsplash.com</li>
+          <li>Region Nordinsel – Quelle: unsplash.com</li>
+          <li>Region Südinsel – Quelle: unsplash.com</li>
+          <li>Region Stewart Island – Quelle: unsplash.com</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">Sollte trotz sorgfältiger Recherche eine Urheberrechtsverletzung vorliegen, bitten wir um eine kurze Nachricht – die betroffenen Inhalte werden umgehend entfernt.</p>
+
         <h2 className="mt-8 font-display text-xl font-bold">Streitschlichtung</h2>
         <p>Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a className="text-primary underline" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
       </section>

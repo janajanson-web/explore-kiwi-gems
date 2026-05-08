@@ -1,7 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import hero from "@/assets/hero-nz.jpg";
+import { useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { regions } from "@/lib/regions";
-import { MapPin, Mountain, ShieldCheck, HelpCircle } from "lucide-react";
+import { Compass, Mountain, ShieldCheck, HelpCircle } from "lucide-react";
+import milford from "@/assets/hero-milford.jpg";
+import mtcook from "@/assets/hero-mtcook.jpg";
+import tekapo from "@/assets/hero-tekapo.jpg";
+import tongariro from "@/assets/hero-tongariro.jpg";
+import cathedral from "@/assets/hero-cathedral.jpg";
+
+const slides = [
+  { src: milford, alt: "Milford Sound mit Mitre Peak" },
+  { src: mtcook, alt: "Aoraki / Mt Cook bei Sonnenaufgang" },
+  { src: tekapo, alt: "Lake Tekapo mit Church of the Good Shepherd und Lupinen" },
+  { src: tongariro, alt: "Tongariro Alpine Crossing mit Emerald Lakes" },
+  { src: cathedral, alt: "Cathedral Cove an der Coromandel-Küste" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -10,20 +25,77 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Atemberaubende Landschaften, echte Abenteuer und ehrliche Insider-Tipps aus dem Land der Kiwis." },
       { property: "og:title", content: "Explore New Zealand – 100% Neuseeland" },
       { property: "og:description", content: "Insider-Tipps und Live-Eindrücke aus Aotearoa." },
-      { property: "og:image", content: hero },
+      { property: "og:image", content: milford },
     ],
   }),
   component: Index,
 });
+
+function HeroSlider() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 40 }, [
+    Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false }),
+  ]);
+  const [selected, setSelected] = useState(0);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelected(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
+  return (
+    <div className="absolute inset-0">
+      <div ref={emblaRef} className="h-full overflow-hidden">
+        <div className="flex h-full">
+          {slides.map((s, i) => (
+            <div key={s.src} className="relative h-full min-w-0 flex-[0_0_100%]">
+              <img
+                src={s.src}
+                alt={s.alt}
+                width={1920}
+                height={1088}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "auto"}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
+      <div className="absolute inset-x-0 bottom-5 z-10 flex justify-center gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Slide ${i + 1}`}
+            onClick={() => emblaApi?.scrollTo(i)}
+            className={`h-2 rounded-full transition-all ${selected === i ? "w-6 bg-primary-foreground" : "w-2 bg-primary-foreground/50 hover:bg-primary-foreground/80"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const quickLinks = [
+  { icon: Compass, title: "Top-Regionen", text: "Sehenswerte Orte", to: "/regionen" as const, params: undefined },
+  { icon: Mountain, title: "Abenteuer & Aktivitäten", text: "Wandern & Outdoor", to: "/regionen/$slug" as const, params: { slug: "suedinsel" } },
+  { icon: ShieldCheck, title: "Sicherheit", text: "Hinweise vor Ort", to: "/sicherheit" as const, params: undefined },
+  { icon: HelpCircle, title: "Häufige Fragen", text: "Visum, Klima & mehr", to: "/faq" as const, params: undefined },
+];
 
 function Index() {
   return (
     <>
       {/* Hero */}
       <section className="relative isolate overflow-hidden">
-        <img src={hero} alt="Milford Sound bei Sonnenaufgang" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/55 to-transparent" />
-        <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center px-4 py-24 md:px-8">
+        <HeroSlider />
+        <div className="pointer-events-none relative mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center px-4 py-24 md:px-8">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/80">Naturally Epic</p>
           <h1 className="max-w-3xl font-display text-5xl font-bold leading-tight text-primary-foreground md:text-7xl">
             100% Neuseeland
@@ -31,7 +103,7 @@ function Index() {
           <p className="mt-6 max-w-xl text-lg text-primary-foreground/90 md:text-xl">
             Entdecke atemberaubende Landschaften, echte Abenteuer und ehrliche Insider-Tipps aus dem Land der Kiwis.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">
             <Link to="/regionen" className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90">
               Regionen entdecken →
             </Link>
@@ -44,23 +116,24 @@ function Index() {
 
       {/* Quick links bar */}
       <section className="border-b border-border bg-secondary">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 md:grid-cols-4 md:px-8">
-          {[
-            { icon: MapPin, title: "Top-Regionen", text: "Sehenswerte Orte" },
-            { icon: Mountain, title: "Abenteuer", text: "Wandern & Outdoor" },
-            { icon: ShieldCheck, title: "Sicherheit", text: "Hinweise vor Ort" },
-            { icon: HelpCircle, title: "FAQ", text: "Visum, Klima & mehr" },
-          ].map((it) => (
-            <div key={it.title} className="flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
-                <it.icon className="h-5 w-5" />
-              </div>
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-foreground">{it.title}</div>
-                <div className="text-sm text-muted-foreground">{it.text}</div>
-              </div>
-            </div>
-          ))}
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 py-8 md:grid-cols-4 md:px-8">
+          {quickLinks.map((it) => {
+            const props = it.params
+              ? { to: it.to, params: it.params }
+              : { to: it.to };
+            return (
+              // @ts-expect-error - dynamic Link params shape
+              <Link key={it.title} {...props} className="group flex items-center gap-3 rounded-lg p-3 transition hover:bg-card hover:shadow-sm">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                  <it.icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-wider text-foreground">{it.title}</div>
+                  <div className="text-sm text-muted-foreground">{it.text}</div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 

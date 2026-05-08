@@ -1,4 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { AlertTriangle } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { getRegion, regions, type Region } from "@/lib/regions";
 
 export const Route = createFileRoute("/regionen/$slug")({
@@ -42,7 +44,7 @@ function RegionDetail() {
         <div className="md:col-span-2">
           <p className="text-lg leading-relaxed text-foreground">{r.intro}</p>
 
-          <h2 className="mt-12 font-display text-3xl font-bold">Highlights</h2>
+          <h2 className="mt-12 font-display text-3xl font-bold">Highlights & Aktivitäten</h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {r.highlights.map((h) => (
               <li key={h} className="flex items-start gap-3 rounded-lg bg-secondary p-4 text-sm">
@@ -51,6 +53,15 @@ function RegionDetail() {
               </li>
             ))}
           </ul>
+
+          <Alert className="mt-6 border-primary/20 bg-secondary text-primary">
+            <AlertTriangle className="h-5 w-5 !text-primary" />
+            <AlertDescription className="text-foreground">
+              <strong className="font-semibold text-primary">Hinweis:</strong> Vor jeder Aktivität bitte unsere{" "}
+              <Link to="/sicherheit" className="font-semibold text-primary underline underline-offset-2 hover:text-accent">Sicherheitsinformationen</Link>{" "}
+              beachten – besonders bei Wassersport, Bergwanderungen und Skifahren.
+            </AlertDescription>
+          </Alert>
 
           <h2 className="mt-12 font-display text-3xl font-bold">Beste Reisezeit</h2>
           <p className="mt-2 text-muted-foreground">{r.bestTime}</p>

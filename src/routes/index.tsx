@@ -4,18 +4,20 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { regions } from "@/lib/regions";
 import { Compass, Mountain, ShieldCheck, HelpCircle } from "lucide-react";
-import milford from "@/assets/hero-milford.jpg";
-import mtcook from "@/assets/hero-mtcook.jpg";
-import tekapo from "@/assets/hero-tekapo.jpg";
-import tongariro from "@/assets/hero-tongariro.jpg";
-import cathedral from "@/assets/hero-cathedral.jpg";
+import cableBay from "@/assets/hero-cable-bay.jpg";
+import haka from "@/assets/hero-haka.jpg";
+import auckland from "@/assets/hero-auckland.jpg";
+import kiwiSign from "@/assets/hero-kiwi-sign.jpg";
+import waiheke from "@/assets/hero-waiheke.jpg";
+import splitApple from "@/assets/hero-split-apple.jpg";
 
 const slides = [
-  { src: milford, alt: "Milford Sound mit Mitre Peak" },
-  { src: mtcook, alt: "Aoraki / Mt Cook bei Sonnenaufgang" },
-  { src: tekapo, alt: "Lake Tekapo mit Church of the Good Shepherd und Lupinen" },
-  { src: tongariro, alt: "Tongariro Alpine Crossing mit Emerald Lakes" },
-  { src: cathedral, alt: "Cathedral Cove an der Coromandel-Küste" },
+  { src: cableBay, alt: "Cable Bay bei Nelson mit türkisem Wasser und Schafen" },
+  { src: haka, alt: "Maori-Tänzer beim Haka" },
+  { src: auckland, alt: "Skyline von Auckland bei Sonnenuntergang" },
+  { src: kiwiSign, alt: "Kiwi-Warnschild „We're looking out for kiwi“" },
+  { src: waiheke, alt: "Weinberge auf Waiheke Island" },
+  { src: splitApple, alt: "Split Apple Rock bei Kaiteriteri" },
 ];
 
 export const Route = createFileRoute("/")({

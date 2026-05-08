@@ -82,11 +82,20 @@ function HeroSlider() {
   );
 }
 
-const quickLinks = [
-  { icon: Compass, title: "Top-Regionen", text: "Sehenswerte Orte", to: "/regionen" as const, params: undefined },
-  { icon: Mountain, title: "Abenteuer & Aktivitäten", text: "Wandern & Outdoor", to: "/regionen/$slug" as const, params: { slug: "suedinsel" } },
-  { icon: ShieldCheck, title: "Sicherheit", text: "Hinweise vor Ort", to: "/sicherheit" as const, params: undefined },
-  { icon: HelpCircle, title: "Häufige Fragen", text: "Visum, Klima & mehr", to: "/faq" as const, params: undefined },
+type QuickLink = {
+  icon: typeof Compass;
+  title: string;
+  text: string;
+} & (
+  | { to: "/regionen" | "/sicherheit" | "/faq"; params?: undefined }
+  | { to: "/regionen/$slug"; params: { slug: string } }
+);
+
+const quickLinks: QuickLink[] = [
+  { icon: Compass, title: "Top-Regionen", text: "Sehenswerte Orte", to: "/regionen" },
+  { icon: Mountain, title: "Abenteuer & Aktivitäten", text: "Wandern & Outdoor", to: "/regionen/$slug", params: { slug: "suedinsel" } },
+  { icon: ShieldCheck, title: "Sicherheit", text: "Hinweise vor Ort", to: "/sicherheit" },
+  { icon: HelpCircle, title: "Häufige Fragen", text: "Visum, Klima & mehr", to: "/faq" },
 ];
 
 function Index() {
@@ -118,12 +127,8 @@ function Index() {
       <section className="border-b border-border bg-secondary">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 py-8 md:grid-cols-4 md:px-8">
           {quickLinks.map((it) => {
-            const props = it.params
-              ? { to: it.to, params: it.params }
-              : { to: it.to };
-            return (
-              // @ts-expect-error - dynamic Link params shape
-              <Link key={it.title} {...props} className="group flex items-center gap-3 rounded-lg p-3 transition hover:bg-card hover:shadow-sm">
+            const inner = (
+              <>
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                   <it.icon className="h-5 w-5" />
                 </div>
@@ -131,7 +136,16 @@ function Index() {
                   <div className="text-xs font-semibold uppercase tracking-wider text-foreground">{it.title}</div>
                   <div className="text-sm text-muted-foreground">{it.text}</div>
                 </div>
-              </Link>
+              </>
+            );
+            const cls = "group flex items-center gap-3 rounded-lg p-3 transition hover:bg-card hover:shadow-sm";
+            if (it.to === "/regionen/$slug") {
+              return (
+                <Link key={it.title} to={it.to} params={it.params} className={cls}>{inner}</Link>
+              );
+            }
+            return (
+              <Link key={it.title} to={it.to} className={cls}>{inner}</Link>
             );
           })}
         </div>

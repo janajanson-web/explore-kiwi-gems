@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
+import { Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import {
   Accordion,
   AccordionContent,
@@ -70,6 +73,13 @@ const faqs = [
 ];
 
 function FAQ() {
+  const [query, setQuery] = useState("");
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return faqs;
+    return faqs.filter((f) => f.q.toLowerCase().includes(q) || f.a.toLowerCase().includes(q));
+  }, [query]);
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 md:px-8">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">Häufige Fragen</p>
@@ -78,27 +88,45 @@ function FAQ() {
         Alle Antworten kurz und mit Quellen. Bitte beachte: Einreise- und Gesundheitsregeln können sich ändern – prüfe vor Reiseantritt die offiziellen Seiten.
       </p>
 
-      <Accordion type="single" collapsible className="mt-10 divide-y divide-border rounded-xl border border-border bg-card">
-        {faqs.map((f, i) => (
-          <AccordionItem key={i} value={`item-${i}`} className="border-0 px-6">
-            <AccordionTrigger className="py-5 text-left font-display text-lg font-semibold hover:no-underline">
-              {f.q}
-            </AccordionTrigger>
-            <AccordionContent className="pb-5 text-muted-foreground">
-              <p>{f.a}</p>
-              <p className="mt-3 text-xs">
-                <strong className="font-semibold text-foreground">Quelle:</strong>{" "}
-                {f.sources.map((s, j) => (
-                  <span key={s.url}>
-                    <a href={s.url} target="_blank" rel="noreferrer" className="text-primary underline hover:text-accent">{s.label}</a>
-                    {j < f.sources.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <div className="relative mt-8">
+        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <Input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Suche nach Stichwort, z. B. Visum, Wetter, Notruf..."
+          className="h-12 pl-10 text-base"
+          aria-label="FAQ durchsuchen"
+        />
+      </div>
+
+      {filtered.length === 0 ? (
+        <p className="mt-10 rounded-xl border border-border bg-secondary p-6 text-center text-muted-foreground">
+          Keine passenden Fragen gefunden. Schreib uns gerne, was dir fehlt.
+        </p>
+      ) : (
+        <Accordion type="single" collapsible className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
+          {filtered.map((f, i) => (
+            <AccordionItem key={f.q} value={`item-${i}`} className="border-0 px-6">
+              <AccordionTrigger className="py-5 text-left font-display text-lg font-semibold hover:no-underline">
+                {f.q}
+              </AccordionTrigger>
+              <AccordionContent className="pb-5 text-muted-foreground">
+                <p>{f.a}</p>
+                <p className="mt-3 text-xs">
+                  <strong className="font-semibold text-foreground">Quelle:</strong>{" "}
+                  {f.sources.map((s, j) => (
+                    <span key={s.url}>
+                      <a href={s.url} target="_blank" rel="noreferrer" className="text-primary underline hover:text-accent">{s.label}</a>
+                      {j < f.sources.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      )}
     </div>
   );
 }

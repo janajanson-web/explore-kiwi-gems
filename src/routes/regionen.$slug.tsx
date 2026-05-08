@@ -58,7 +58,7 @@ function RegionDetail() {
             <AlertTriangle className="h-5 w-5 !text-primary" />
             <AlertDescription className="text-foreground">
               <strong className="font-semibold text-primary">Hinweis:</strong> Vor jeder Aktivität bitte unsere{" "}
-              <Link to="/sicherheit" className="font-semibold text-primary underline underline-offset-2 hover:text-accent">Sicherheitsinformationen</Link>{" "}
+              <Link to="/faq" className="font-semibold text-primary underline underline-offset-2 hover:text-accent">Sicherheitsinformationen</Link>{" "}
               beachten – besonders bei Wassersport, Bergwanderungen und Skifahren.
             </AlertDescription>
           </Alert>

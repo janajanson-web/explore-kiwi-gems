@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SicherheitRouteImport } from './routes/sicherheit'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
@@ -17,11 +16,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as RegionenIndexRouteImport } from './routes/regionen.index'
 import { Route as RegionenSlugRouteImport } from './routes/regionen.$slug'
 
-const SicherheitRoute = SicherheitRouteImport.update({
-  id: '/sicherheit',
-  path: '/sicherheit',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
@@ -58,7 +52,6 @@ export interface FileRoutesByFullPath {
   '/datenschutz': typeof DatenschutzRoute
   '/faq': typeof FaqRoute
   '/impressum': typeof ImpressumRoute
-  '/sicherheit': typeof SicherheitRoute
   '/regionen/$slug': typeof RegionenSlugRoute
   '/regionen/': typeof RegionenIndexRoute
 }
@@ -67,7 +60,6 @@ export interface FileRoutesByTo {
   '/datenschutz': typeof DatenschutzRoute
   '/faq': typeof FaqRoute
   '/impressum': typeof ImpressumRoute
-  '/sicherheit': typeof SicherheitRoute
   '/regionen/$slug': typeof RegionenSlugRoute
   '/regionen': typeof RegionenIndexRoute
 }
@@ -77,7 +69,6 @@ export interface FileRoutesById {
   '/datenschutz': typeof DatenschutzRoute
   '/faq': typeof FaqRoute
   '/impressum': typeof ImpressumRoute
-  '/sicherheit': typeof SicherheitRoute
   '/regionen/$slug': typeof RegionenSlugRoute
   '/regionen/': typeof RegionenIndexRoute
 }
@@ -88,7 +79,6 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/faq'
     | '/impressum'
-    | '/sicherheit'
     | '/regionen/$slug'
     | '/regionen/'
   fileRoutesByTo: FileRoutesByTo
@@ -97,7 +87,6 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/faq'
     | '/impressum'
-    | '/sicherheit'
     | '/regionen/$slug'
     | '/regionen'
   id:
@@ -106,7 +95,6 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/faq'
     | '/impressum'
-    | '/sicherheit'
     | '/regionen/$slug'
     | '/regionen/'
   fileRoutesById: FileRoutesById
@@ -116,20 +104,12 @@ export interface RootRouteChildren {
   DatenschutzRoute: typeof DatenschutzRoute
   FaqRoute: typeof FaqRoute
   ImpressumRoute: typeof ImpressumRoute
-  SicherheitRoute: typeof SicherheitRoute
   RegionenSlugRoute: typeof RegionenSlugRoute
   RegionenIndexRoute: typeof RegionenIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sicherheit': {
-      id: '/sicherheit'
-      path: '/sicherheit'
-      fullPath: '/sicherheit'
-      preLoaderRoute: typeof SicherheitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/impressum': {
       id: '/impressum'
       path: '/impressum'
@@ -180,10 +160,19 @@ const rootRouteChildren: RootRouteChildren = {
   DatenschutzRoute: DatenschutzRoute,
   FaqRoute: FaqRoute,
   ImpressumRoute: ImpressumRoute,
-  SicherheitRoute: SicherheitRoute,
   RegionenSlugRoute: RegionenSlugRoute,
   RegionenIndexRoute: RegionenIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

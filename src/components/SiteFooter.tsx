@@ -12,8 +12,7 @@ export function SiteFooter() {
           <div className="mb-3 text-xs font-semibold uppercase tracking-widest opacity-70">Reise & Information</div>
           <ul className="space-y-2 text-sm">
             <li><Link to="/regionen" className="opacity-90 hover:opacity-100">Regionen</Link></li>
-            <li><Link to="/faq" className="opacity-90 hover:opacity-100">FAQ</Link></li>
-            <li><Link to="/sicherheit" className="opacity-90 hover:opacity-100">Sicherheit</Link></li>
+            <li><Link to="/faq" className="opacity-90 hover:opacity-100">FAQ & Sicherheit</Link></li>
           </ul>
         </div>
         <div>

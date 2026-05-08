@@ -91,14 +91,14 @@ type QuickLink = {
   title: string;
   text: string;
 } & (
-  | { to: "/regionen" | "/sicherheit" | "/faq"; params?: undefined }
+  | { to: "/regionen" | "/faq"; params?: undefined }
   | { to: "/regionen/$slug"; params: { slug: string } }
 );
 
 const quickLinks: QuickLink[] = [
   { icon: Compass, title: "Top-Regionen", text: "Sehenswerte Orte", to: "/regionen" },
   { icon: Mountain, title: "Abenteuer & Aktivitäten", text: "Wandern & Outdoor", to: "/regionen/$slug", params: { slug: "suedinsel" } },
-  { icon: ShieldCheck, title: "Sicherheit", text: "Hinweise vor Ort", to: "/sicherheit" },
+  { icon: ShieldCheck, title: "Sicherheit", text: "Hinweise vor Ort", to: "/faq" },
   { icon: HelpCircle, title: "Häufige Fragen", text: "Visum, Klima & mehr", to: "/faq" },
 ];
 

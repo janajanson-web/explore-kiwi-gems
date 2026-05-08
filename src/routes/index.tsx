@@ -4,18 +4,20 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { regions } from "@/lib/regions";
 import { Compass, Mountain, ShieldCheck, HelpCircle } from "lucide-react";
-import milford from "@/assets/hero-milford.jpg";
-import mtcook from "@/assets/hero-mtcook.jpg";
-import tekapo from "@/assets/hero-tekapo.jpg";
-import tongariro from "@/assets/hero-tongariro.jpg";
-import cathedral from "@/assets/hero-cathedral.jpg";
+import cableBay from "@/assets/hero-cable-bay.jpg";
+import haka from "@/assets/hero-haka.jpg";
+import auckland from "@/assets/hero-auckland.jpg";
+import kiwiSign from "@/assets/hero-kiwi-sign.jpg";
+import waiheke from "@/assets/hero-waiheke.jpg";
+import splitApple from "@/assets/hero-split-apple.jpg";
 
 const slides = [
-  { src: milford, alt: "Milford Sound mit Mitre Peak" },
-  { src: mtcook, alt: "Aoraki / Mt Cook bei Sonnenaufgang" },
-  { src: tekapo, alt: "Lake Tekapo mit Church of the Good Shepherd und Lupinen" },
-  { src: tongariro, alt: "Tongariro Alpine Crossing mit Emerald Lakes" },
-  { src: cathedral, alt: "Cathedral Cove an der Coromandel-Küste" },
+  { src: cableBay, alt: "Cable Bay bei Nelson mit türkisem Wasser und Schafen" },
+  { src: haka, alt: "Maori-Tänzer beim Haka" },
+  { src: auckland, alt: "Skyline von Auckland bei Sonnenuntergang" },
+  { src: kiwiSign, alt: "Kiwi-Warnschild „We're looking out for kiwi“" },
+  { src: waiheke, alt: "Weinberge auf Waiheke Island" },
+  { src: splitApple, alt: "Split Apple Rock bei Kaiteriteri" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -25,7 +27,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Atemberaubende Landschaften, echte Abenteuer und ehrliche Insider-Tipps aus dem Land der Kiwis." },
       { property: "og:title", content: "Explore New Zealand – 100% Neuseeland" },
       { property: "og:description", content: "Insider-Tipps und Live-Eindrücke aus Aotearoa." },
-      { property: "og:image", content: milford },
+      { property: "og:image", content: cableBay },
     ],
   }),
   component: Index,
@@ -33,7 +35,7 @@ export const Route = createFileRoute("/")({
 
 function HeroSlider() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 40 }, [
-    Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false }),
+    Autoplay({ delay: 9000, stopOnMouseEnter: true, stopOnInteraction: false }),
   ]);
   const [selected, setSelected] = useState(0);
 
@@ -66,7 +68,7 @@ function HeroSlider() {
           ))}
         </div>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
+      
       <div className="absolute inset-x-0 bottom-5 z-10 flex justify-center gap-2">
         {slides.map((_, i) => (
           <button

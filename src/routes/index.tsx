@@ -7,15 +7,17 @@ import { Compass, Mountain, ShieldCheck, HelpCircle } from "lucide-react";
 import cableBay from "@/assets/hero-cable-bay.jpg";
 import haka from "@/assets/hero-haka.jpg";
 import auckland from "@/assets/hero-auckland.jpg";
-import kiwiSign from "@/assets/hero-kiwi-sign.jpg";
 import waiheke from "@/assets/hero-waiheke.jpg";
 import splitApple from "@/assets/hero-split-apple.jpg";
+import kiwi from "@/assets/hero-kiwi.jpg";
+import hobbiton from "@/assets/hero-hobbiton.jpg";
 
 const slides = [
   { src: cableBay, alt: "Cable Bay bei Nelson mit türkisem Wasser und Schafen" },
   { src: haka, alt: "Maori-Tänzer beim Haka" },
   { src: auckland, alt: "Skyline von Auckland bei Sonnenuntergang" },
-  { src: kiwiSign, alt: "Kiwi-Warnschild „We're looking out for kiwi“" },
+  { src: kiwi, alt: "Kiwi-Vogel im neuseeländischen Farnwald" },
+  { src: hobbiton, alt: "Hobbiton Movie Set in Matamata mit Hobbithöhle" },
   { src: waiheke, alt: "Weinberge auf Waiheke Island" },
   { src: splitApple, alt: "Split Apple Rock bei Kaiteriteri" },
 ];

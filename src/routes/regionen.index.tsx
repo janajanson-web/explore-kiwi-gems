@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { regions } from "@/lib/regions";
+import { NewZealandMap } from "@/components/NewZealandMap";
 
 export const Route = createFileRoute("/regionen/")({
   head: () => ({
@@ -21,6 +22,11 @@ function RegionsPage() {
         <h1 className="font-display text-4xl font-bold text-foreground md:text-6xl">Drei Inseln, unzählige Welten</h1>
         <p className="mt-4 text-muted-foreground">Klick dich durch die wichtigsten Regionen Neuseelands und entdecke Fakten, Highlights und beste Reisezeiten.</p>
       </header>
+
+      <section className="mb-16 rounded-2xl border border-border bg-card p-6 md:p-10">
+        <h2 className="mb-6 text-center font-display text-2xl font-bold text-foreground">Neuseeland im Überblick</h2>
+        <NewZealandMap />
+      </section>
 
       <div className="grid gap-10">
         {regions.map((r, i) => (

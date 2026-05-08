@@ -9,11 +9,11 @@ export function SiteFooter() {
           <p className="mt-2 text-sm opacity-80">Ehrliche Insider-Tipps und Live-Eindrücke aus Aotearoa für deutschsprachige Reisende.</p>
         </div>
         <div>
-          <div className="mb-3 text-xs font-semibold uppercase tracking-widest opacity-70">Entdecken</div>
+          <div className="mb-3 text-xs font-semibold uppercase tracking-widest opacity-70">Reise & Information</div>
           <ul className="space-y-2 text-sm">
             <li><Link to="/regionen" className="opacity-90 hover:opacity-100">Regionen</Link></li>
-            <li><Link to="/sicherheit" className="opacity-90 hover:opacity-100">Sicherheit</Link></li>
             <li><Link to="/faq" className="opacity-90 hover:opacity-100">FAQ</Link></li>
+            <li><Link to="/sicherheit" className="opacity-90 hover:opacity-100">Sicherheit</Link></li>
           </ul>
         </div>
         <div>

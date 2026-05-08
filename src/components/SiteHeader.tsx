@@ -4,9 +4,7 @@ import logo from "@/assets/logo.png";
 const nav = [
   { to: "/", label: "Start" },
   { to: "/regionen", label: "Regionen" },
-  { to: "/sicherheit", label: "Sicherheit" },
   { to: "/faq", label: "FAQ" },
-  { to: "/impressum", label: "Impressum" },
 ] as const;
 
 export function SiteHeader() {

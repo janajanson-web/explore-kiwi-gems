@@ -16,7 +16,7 @@ export const Route = createFileRoute("/sicherheit")({
 const items = [
   { icon: Phone, title: "Notruf 111", text: "Eine Nummer für Polizei, Feuerwehr und Rettungsdienst – landesweit erreichbar." },
   { icon: Car, title: "Linksverkehr", text: "Im Kreisverkehr hat von rechts Vorfahrt. Strecken werden meist unterschätzt – Pufferzeiten einplanen." },
-  { icon: Mountain, title: "Erdbeben & Vulkane", text: "Bei Beben: Drop, Cover, Hold. Aktuelle Lage auf GeoNet prüfen, besonders rund um Taupo und Ruapehu." },
+  { icon: Mountain, title: "Erdbeben & Vulkane", text: <>Bei Beben: Drop, Cover, Hold. Aktuelle Lage auf <a href="https://www.geonet.org.nz" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-accent">GeoNet</a> prüfen, besonders rund um Taupo und Ruapehu.</> },
   { icon: Waves, title: "Tsunami-Warnungen", text: "Bei langem starken Beben an der Küste sofort hochgelegenes Gelände aufsuchen – ohne auf offizielle Warnung zu warten." },
   { icon: Sun, title: "UV-Strahlung", text: "Die UV-Strahlung ist 40 % höher als in Mitteleuropa. Sonnencreme LSF 50+, Hut und langärmlige Kleidung." },
   { icon: AlertTriangle, title: "Wetter in den Bergen", text: "Schneller Wetterumschwung möglich. DOC-Hütten registrieren, Wetterbericht (MetService) und Tracks-Status prüfen." },

@@ -41,7 +41,11 @@ function Imprint() {
           kostenfrei zur kommerziellen und nicht-kommerziellen Nutzung bereitgestellt. Wir danken den Fotografinnen und Fotografen der Unsplash-Community für die Bereitstellung ihrer Werke.
         </p>
         <ul>
-          <li>Hero-Bild „Neuseeland-Landschaft“ – Quelle: unsplash.com</li>
+          <li>Hero-Slider „Milford Sound mit Mitre Peak“ – Quelle: unsplash.com</li>
+          <li>Hero-Slider „Aoraki / Mt Cook bei Sonnenaufgang“ – Quelle: unsplash.com</li>
+          <li>Hero-Slider „Lake Tekapo mit Church of the Good Shepherd und Lupinen“ – Quelle: unsplash.com</li>
+          <li>Hero-Slider „Tongariro Alpine Crossing mit Emerald Lakes“ – Quelle: unsplash.com</li>
+          <li>Hero-Slider „Cathedral Cove“ – Quelle: unsplash.com</li>
           <li>Region Nordinsel – Quelle: unsplash.com</li>
           <li>Region Südinsel – Quelle: unsplash.com</li>
           <li>Region Stewart Island – Quelle: unsplash.com</li>

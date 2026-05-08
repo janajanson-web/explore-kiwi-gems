@@ -68,7 +68,7 @@ function HeroSlider() {
           ))}
         </div>
       </div>
-      
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
       <div className="absolute inset-x-0 bottom-5 z-10 flex justify-center gap-2">
         {slides.map((_, i) => (
           <button

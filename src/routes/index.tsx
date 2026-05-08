@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Atemberaubende Landschaften, echte Abenteuer und ehrliche Insider-Tipps aus dem Land der Kiwis." },
       { property: "og:title", content: "Explore New Zealand – 100% Neuseeland" },
       { property: "og:description", content: "Insider-Tipps und Live-Eindrücke aus Aotearoa." },
-      { property: "og:image", content: milford },
+      { property: "og:image", content: cableBay },
     ],
   }),
   component: Index,
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
 
 function HeroSlider() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 40 }, [
-    Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false }),
+    Autoplay({ delay: 9000, stopOnMouseEnter: true, stopOnInteraction: false }),
   ]);
   const [selected, setSelected] = useState(0);
 
@@ -68,7 +68,7 @@ function HeroSlider() {
           ))}
         </div>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
+      
       <div className="absolute inset-x-0 bottom-5 z-10 flex justify-center gap-2">
         {slides.map((_, i) => (
           <button

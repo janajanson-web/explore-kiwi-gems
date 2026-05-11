@@ -136,7 +136,7 @@ function RegionDetail() {
               <Card key={e.id} className="overflow-hidden transition-shadow hover:shadow-lg">
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img
-                    src={imageFor(e.imageQuery)}
+                    src={e.image ?? imageFor(e.imageQuery)}
                     alt={e.title}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
@@ -207,7 +207,7 @@ function RegionDetail() {
                 >
                   <div className="overflow-hidden rounded-xl shadow-md">
                     <img
-                      src={imageFor(f.imageQuery, 1000, 750)}
+                      src={f.image ?? imageFor(f.imageQuery, 1000, 750)}
                       alt={f.title}
                       loading="lazy"
                       className="aspect-[4/3] h-full w-full object-cover"

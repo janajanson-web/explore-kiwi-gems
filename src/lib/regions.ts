@@ -1,6 +1,13 @@
 import north from "@/assets/region-north.jpg";
 import south from "@/assets/region-south.jpg";
 import stewart from "@/assets/region-stewart.jpg";
+import excMilford from "@/assets/excursion-milford-sound.jpg";
+import excHooker from "@/assets/excursion-hooker-valley.jpg";
+import excFranzJosef from "@/assets/excursion-franz-josef.jpg";
+import excRouteburn from "@/assets/excursion-routeburn.jpg";
+import excRoysPeak from "@/assets/excursion-roys-peak.jpg";
+import foodMarlborough from "@/assets/food-marlborough-sauvignon.jpg";
+import foodBluffOysters from "@/assets/food-bluff-oysters.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -13,6 +20,7 @@ export type Excursion = {
   source: string;
   sourceUrl?: string;
   imageQuery: string;
+  image?: string;
 };
 
 export type FoodItem = {
@@ -22,6 +30,7 @@ export type FoodItem = {
   description: string;
   insiderTip?: string;
   imageQuery: string;
+  image?: string;
 };
 
 export type SafetyItem = {

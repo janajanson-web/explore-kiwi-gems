@@ -52,6 +52,15 @@ function Imprint() {
         </ul>
         <p className="text-sm text-muted-foreground">Sollte trotz sorgfältiger Recherche eine Urheberrechtsverletzung vorliegen, bitten wir um eine kurze Nachricht – die betroffenen Inhalte werden umgehend entfernt.</p>
 
+        <h2 className="mt-8 font-display text-xl font-bold">Quellen & Abkürzungen</h2>
+        <p>Inhaltliche Informationen stützen sich auf offizielle Quellen. Häufig verwendete Abkürzungen:</p>
+        <ul>
+          <li><strong>DOC</strong> = Department of Conservation (Te Papa Atawhai), neuseeländische Naturschutzbehörde. Verwaltet Nationalparks, Wanderwege (u. a. Great Walks), Hütten und Campingplätze und veröffentlicht offizielle Sicherheits- und Wetterwarnungen. Website: <a className="text-primary underline" href="https://www.doc.govt.nz/" target="_blank" rel="noreferrer">doc.govt.nz</a>.</li>
+          <li><strong>NZeTA</strong> = New Zealand Electronic Travel Authority (elektronische Reisegenehmigung).</li>
+          <li><strong>IVL</strong> = International Visitor Conservation and Tourism Levy (Tourismusabgabe).</li>
+          <li><strong>NZTA</strong> = New Zealand Transport Agency (Verkehrsbehörde).</li>
+        </ul>
+
         <h2 className="mt-8 font-display text-xl font-bold">Streitschlichtung</h2>
         <p>Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a className="text-primary underline" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
       </section>

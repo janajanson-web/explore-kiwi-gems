@@ -49,6 +49,11 @@ export const faqs: FaqEntry[] = [
     ],
   },
   {
+    q: "Was ist DOC (Department of Conservation)?",
+    a: "DOC steht für Department of Conservation (Te Papa Atawhai) – die staatliche Naturschutzbehörde Neuseelands. Sie verwaltet Nationalparks, Wanderwege (inklusive aller Great Walks wie Tongariro Alpine Crossing, Routeburn und Rakiura), DOC-Hütten und Campingplätze und veröffentlicht verbindliche Sicherheits-, Wetter- und Sperrwarnungen für Outdoor-Aktivitäten. Als staatliche, nicht-kommerzielle Quelle ist DOC neutral und verlässlich – wir verlinken regelmäßig auf doc.govt.nz für offizielle Track-Daten und Hütten-Buchungen.",
+    sources: [{ label: "Department of Conservation", url: "https://www.doc.govt.nz/" }],
+  },
+  {
     q: "Brauche ich einen internationalen Führerschein?",
     a: "Empfohlen ist ein internationaler Führerschein zusammen mit dem deutschen Führerschein, oder eine beglaubigte englische Übersetzung. Gültig bis zu 12 Monate.",
     sources: [{ label: "NZTA – Visiting drivers", url: "https://www.nzta.govt.nz/safety/driving-safely/visiting-drivers/" }],

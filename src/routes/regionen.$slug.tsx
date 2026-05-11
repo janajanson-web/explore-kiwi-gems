@@ -126,7 +126,7 @@ function RegionDetail() {
       </div>
 
       {/* Excursions */}
-      <section className="bg-background">
+      <section id="aktivitaeten" className="scroll-mt-24 bg-background">
         <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
           <h2 className="font-display text-3xl font-bold md:text-4xl">Ausflüge & Wanderungen</h2>
           <p className="mt-2 text-muted-foreground">Unsere Empfehlungen – von Spaziergang bis Mehrtagestour.</p>

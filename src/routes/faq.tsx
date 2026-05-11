@@ -41,11 +41,22 @@ function FAQ() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 md:px-8">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">FAQ & Sicherheit</p>
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">FAQ & Nützliches</p>
       <h1 className="font-display text-4xl font-bold text-foreground md:text-6xl">Gut vorbereitet nach Aotearoa</h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Sicherheitshinweise und häufige Fragen zur Reise – kurz, mit Quellen. Bitte beachte: Einreise-, Gesundheits- und Sicherheitsregeln können sich ändern – prüfe vor Reiseantritt die offiziellen Seiten.
+        Häufige Fragen zur Reise – kurz, mit Quellen. Bitte beachte: Einreise-, Gesundheits- und Sicherheitsregeln können sich ändern – prüfe vor Reiseantritt die offiziellen Seiten.
       </p>
+
+      <div className="mt-6 flex items-start gap-3 rounded-lg border-l-4 border-accent bg-secondary p-4 text-sm">
+        <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+        <p className="text-foreground">
+          Für detaillierte Sicherheitshinweise siehe{" "}
+          <Link to="/faq" hash="sicherheit" className="font-semibold text-primary underline underline-offset-2 hover:text-accent">
+            Sicherheit
+          </Link>
+          .
+        </p>
+      </div>
 
       <section id="sicherheit" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">Sicher unterwegs in Neuseeland</h2>

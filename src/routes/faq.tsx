@@ -58,31 +58,7 @@ function FAQ() {
         </p>
       </div>
 
-      <section id="sicherheit" className="mt-12 scroll-mt-24">
-        <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">Sicher unterwegs in Neuseeland</h2>
-        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Neuseeland ist ein sicheres Reiseland – mit ein paar Besonderheiten, die du kennen solltest.
-        </p>
-        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {safetyItems.map((it) => (
-            <div key={it.title} className="rounded-xl border border-border bg-card p-6 shadow-sm">
-              <div className="mb-4 grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
-                <it.icon className="h-5 w-5" />
-              </div>
-              <h3 className="font-display text-lg font-bold text-foreground">{it.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{it.text}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-6 rounded-xl border border-accent/30 bg-accent/10 p-6 text-sm">
-          <strong className="font-semibold text-foreground">Quellen & Live-Infos:</strong>{" "}
-          <a className="text-primary underline" href="https://www.geonet.org.nz/" target="_blank" rel="noreferrer">GeoNet</a>,{" "}
-          <a className="text-primary underline" href="https://www.metservice.com/" target="_blank" rel="noreferrer">MetService</a>,{" "}
-          <a className="text-primary underline" href="https://www.auswaertiges-amt.de/de/service/laender/neuseeland-node" target="_blank" rel="noreferrer">Auswärtiges Amt</a>.
-        </div>
-      </section>
-
-      <section className="mt-16">
+      <section className="mt-12">
         <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">Häufige Fragen</h2>
 
         <div className="relative mt-6">
@@ -124,6 +100,30 @@ function FAQ() {
             ))}
           </Accordion>
         )}
+      </section>
+
+      <section id="sicherheit" className="mt-16 scroll-mt-24">
+        <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">Sicher unterwegs in Neuseeland</h2>
+        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+          Neuseeland ist ein sicheres Reiseland – mit ein paar Besonderheiten, die du kennen solltest.
+        </p>
+        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {safetyItems.map((it) => (
+            <div key={it.title} className="rounded-xl border border-border bg-card p-6 shadow-sm">
+              <div className="mb-4 grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
+                <it.icon className="h-5 w-5" />
+              </div>
+              <h3 className="font-display text-lg font-bold text-foreground">{it.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{it.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 rounded-xl border border-accent/30 bg-accent/10 p-6 text-sm">
+          <strong className="font-semibold text-foreground">Quellen & Live-Infos:</strong>{" "}
+          <a className="text-primary underline" href="https://www.geonet.org.nz/" target="_blank" rel="noreferrer">GeoNet</a>,{" "}
+          <a className="text-primary underline" href="https://www.metservice.com/" target="_blank" rel="noreferrer">MetService</a>,{" "}
+          <a className="text-primary underline" href="https://www.auswaertiges-amt.de/de/service/laender/neuseeland-node" target="_blank" rel="noreferrer">Auswärtiges Amt</a>.
+        </div>
       </section>
     </div>
   );

@@ -58,11 +58,11 @@ function RegionDetail() {
     <article>
       <div className="relative h-[55vh] min-h-[380px] w-full overflow-hidden">
         <img src={r.image} alt={r.name} width={1024} height={768} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-10 text-primary-foreground md:px-8">
-          <Link to="/regionen" className="text-xs uppercase tracking-widest opacity-80 hover:opacity-100">← Alle Regionen</Link>
-          <h1 className="mt-3 font-display text-5xl font-bold md:text-7xl">{r.name}</h1>
-          <p className="mt-2 text-lg opacity-90">{r.tagline}</p>
+          <Link to="/regionen" className="text-xs uppercase tracking-widest opacity-90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)] hover:opacity-100">← Alle Regionen</Link>
+          <h1 className="mt-3 font-display text-5xl font-bold drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] md:text-7xl">{r.name}</h1>
+          <p className="mt-2 text-lg opacity-95 drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]">{r.tagline}</p>
         </div>
       </div>
 

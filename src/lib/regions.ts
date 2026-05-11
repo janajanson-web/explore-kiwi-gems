@@ -32,6 +32,8 @@ export type Excursion = {
   title: string;
   description: string;
   effort: Effort;
+  duration: string;
+  priceRange: string;
   tags: string[];
   source: string;
   sourceUrl?: string;
@@ -104,6 +106,8 @@ export const regions: Region[] = [
         description:
           "19,4 km Tageswanderung über einen aktiven Vulkan – mit den leuchtenden Emerald Lakes und Blick auf den perfekten Kegel des Mt Ngauruhoe. Eine der besten Tageswanderungen der Welt.",
         effort: "challenging",
+        duration: "1 Tag (7–9 Stunden)",
+        priceRange: "€ 35–60 (Shuttle)",
         tags: ["Tageswanderung", "Vulkan", "19,4 km"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/tongariro-national-park/things-to-do/tongariro-alpine-crossing/",
@@ -116,6 +120,8 @@ export const regions: Region[] = [
         description:
           "Spiritueller Maori-Ort an der Nordspitze, wo sich Tasmansee und Pazifik treffen. Endlose Sanddünen, einsamer Leuchtturm und eine Autotour über den breiten Ninety-Mile Beach.",
         effort: "easy",
+        duration: "1 Tag (8–10 Stunden)",
+        priceRange: "€ 0 (Selbstfahrt) / € 150–200 (Bustour)",
         tags: ["Autotour", "Küste", "Kultur"],
         source: "Tourism New Zealand",
         sourceUrl: "https://www.newzealand.com/de/cape-reinga/",
@@ -128,6 +134,8 @@ export const regions: Region[] = [
         description:
           "Eine Bootstour durch dunkle Höhlen unter einem Sternenhimmel aus tausenden Glühwürmchen – magisch still und unvergesslich.",
         effort: "easy",
+        duration: "ca. 1 Stunde",
+        priceRange: "€ 35–55",
         tags: ["Höhle", "Familienfreundlich"],
         source: "Tourism New Zealand",
         sourceUrl: "https://www.newzealand.com/de/feature/waitomo-glowworm-caves/",
@@ -140,6 +148,8 @@ export const regions: Region[] = [
         description:
           "Küstenwanderung zu der berühmten Felsformation mit dem natürlichen Torbogen – türkises Wasser und weißer Sand inklusive.",
         effort: "moderate",
+        duration: "ca. 2–3 Stunden",
+        priceRange: "€ 0 (Selbstwanderung)",
         tags: ["Küstenwanderung", "Strand"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/coromandel/",
@@ -247,6 +257,8 @@ export const regions: Region[] = [
         description:
           "Zwei Stunden durch den spektakulärsten Fjord der Welt – mit tosenden Wasserfällen, Robbenkolonien und (mit Glück) Delfinen. Start meist ab Te Anau oder Queenstown.",
         effort: "easy",
+        duration: "ca. 2 Stunden (Tour)",
+        priceRange: "€ 60–120",
         tags: ["Bootstour", "Fjord"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/milford-sound-piopiotahi/",
@@ -259,6 +271,8 @@ export const regions: Region[] = [
         description:
           "10 km hin und zurück durch das Hooker Valley – mit Hängebrücken über Gletscherflüsse und Aoraki/Mt Cook am Horizont. Eine der schönsten leichten Wanderungen Neuseelands.",
         effort: "moderate",
+        duration: "ca. 3 Stunden",
+        priceRange: "€ 0",
         tags: ["Tageswanderung", "Alpine View"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/hooker-valley-track/",
@@ -271,6 +285,8 @@ export const regions: Region[] = [
         description:
           "Geführte Gletscherwanderung oder spektakuläre Heli-Hike auf das ewige Eis – nur mit Guide möglich, da der Gletscher sich ständig verändert.",
         effort: "challenging",
+        duration: "ca. 4 Stunden",
+        priceRange: "€ 350–500",
         tags: ["Gletscher", "Helitour"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/westland-tai-poutini-national-park/",
@@ -283,6 +299,8 @@ export const regions: Region[] = [
         description:
           "16 km steiler Aufstieg mit dem berühmten Instagram-Aussichtspunkt über den Lake Wanaka und die umliegenden Berge. Früh starten – bei Sonnenaufgang am magischsten.",
         effort: "challenging",
+        duration: "ca. 5–6 Stunden",
+        priceRange: "€ 0",
         tags: ["Bergtour", "Aussicht"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/roys-peak-track/",
@@ -295,6 +313,8 @@ export const regions: Region[] = [
         description:
           "32 km Great Walk über drei Tage – durch Buchenwald, alpine Pässe und entlang glasklarer Bergseen. Hütten müssen Monate im Voraus gebucht werden.",
         effort: "challenging",
+        duration: "3 Tage / 2 Nächte",
+        priceRange: "€ 100–150 (DOC-Hütten)",
         tags: ["Great Walk", "3 Tage"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/routeburn-track/",
@@ -401,6 +421,8 @@ export const regions: Region[] = [
         description:
           "32 km Great Walk über drei Tage durch dichten Regenwald und entlang einsamer Buchten. Zwei DOC-Hütten unterwegs – im Voraus buchen.",
         effort: "moderate",
+        duration: "3 Tage / 2 Nächte",
+        priceRange: "€ 100–130 (DOC-Hütten)",
         tags: ["Great Walk", "3 Tage"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/things-to-do/tracks/rakiura-track/",
@@ -413,6 +435,8 @@ export const regions: Region[] = [
         description:
           "Pestizidfreie Vogelinsel – Heimat von Saddleback, Kaka und Yellowhead. Ein Wassertaxi bringt Besucher in 10 Minuten hin, leichte Tagesrundwege erschließen die Insel.",
         effort: "easy",
+        duration: "ca. 3–4 Stunden",
+        priceRange: "€ 30–50 (Wassertaxi)",
         tags: ["Vogelreservat", "Tagesausflug"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/places/ulva-island-te-wharawhara/",
@@ -425,6 +449,8 @@ export const regions: Region[] = [
         description:
           "Stewart Island ist einer der wenigen Orte weltweit, wo wilde Kiwis tagsüber und in der Dämmerung zu sehen sind. Geführte Abendtour mit Rotlicht – respektvoll und leise.",
         effort: "easy",
+        duration: "ca. 3–4 Stunden (abends)",
+        priceRange: "€ 100–150",
         tags: ["Tierbeobachtung", "Nachttour"],
         source: "Lokale Guides (DOC-zertifiziert)",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/things-to-do/",
@@ -437,6 +463,8 @@ export const regions: Region[] = [
         description:
           "Abgelegene Bucht an der Westküste – über mehrtägige Wanderung oder per Buschflugzeug erreichbar. Eine der besten Stellen, wilde Kiwis am Strand zu sehen.",
         effort: "challenging",
+        duration: "2–3 Tage",
+        priceRange: "€ 200–300 (Flug einfach)",
         tags: ["Mehrtagestour", "Remote"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/places/mason-bay/",

@@ -201,7 +201,11 @@ function RegionDetail() {
       <section id="kulinarisches" className="scroll-mt-24 bg-secondary/40">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
           <h2 className="font-display text-3xl font-bold md:text-4xl">Kulinarisches aus der Region</h2>
-          <p className="mt-2 text-muted-foreground">Geschmack der Region – Spezialitäten, Märkte, Manufakturen und ausgewählte Weine.</p>
+          <p className="mt-2 text-muted-foreground">
+            {r.slug === "stewart-island"
+              ? "Geschmack der Insel – fangfrische Meeresfrüchte und traditionelle Spezialitäten direkt vom Hafen."
+              : "Geschmack der Region – Spezialitäten, Märkte, Manufakturen und ausgewählte Weine."}
+          </p>
 
           <div className="mt-10 space-y-12">
             {r.foodAndWine.map((f, i) => {

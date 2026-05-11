@@ -16,7 +16,7 @@ type Zone = {
 const zones: Zone[] = [
   { slug: "nordinsel", label: "Nordinsel", left: 47, top: 5, width: 32, height: 45 },
   { slug: "suedinsel", label: "Südinsel", left: 30, top: 47, width: 30, height: 42 },
-  { slug: "stewart-island", label: "Stewart Island", left: 27, top: 86, width: 7, height: 8 },
+  { slug: "stewart-island", label: "Stewart Island", left: 33, top: 86, width: 7, height: 8 },
 ];
 
 export function NewZealandMap() {

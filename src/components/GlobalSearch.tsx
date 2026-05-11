@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Command as CommandPrimitive } from "cmdk";
-import { Search, Compass, Mountain, Utensils, HelpCircle, X } from "lucide-react";
+import { Search, Compass, Mountain, Utensils, HelpCircle, ShieldCheck, FileText, X } from "lucide-react";
 import {
   Command,
   CommandDialog,
@@ -28,7 +28,9 @@ type Buckets = {
   regions: ResultItem[];
   activities: ResultItem[];
   food: ResultItem[];
+  safety: ResultItem[];
   faq: ResultItem[];
+  pages: ResultItem[];
 };
 
 function useBuckets(close: () => void): Buckets {
@@ -43,11 +45,20 @@ function useBuckets(close: () => void): Buckets {
       title: r.name,
       sublabel: r.tagline,
       icon: Compass,
-      searchText: `${r.name} ${r.tagline} ${r.intro}`,
+      searchText: [
+        r.name,
+        r.tagline,
+        r.intro,
+        r.bestTime,
+        r.highlights.join(" "),
+        r.facts.map((f) => `${f.label} ${f.value}`).join(" "),
+        r.sources.map((s) => s.label).join(" "),
+      ].join(" "),
       onSelect: go(() => navigate({ to: "/regionen/$slug", params: { slug: r.slug } })),
     }));
     const activities: ResultItem[] = [];
     const food: ResultItem[] = [];
+    const safety: ResultItem[] = [];
     regions.forEach((r) => {
       r.excursions.forEach((e) => {
         activities.push({
@@ -55,7 +66,16 @@ function useBuckets(close: () => void): Buckets {
           title: e.title,
           sublabel: `Aktivität · ${r.name}`,
           icon: Mountain,
-          searchText: `${e.title} ${e.description} ${e.tags.join(" ")} ${r.name}`,
+          searchText: [
+            e.title,
+            e.description,
+            e.tags.join(" "),
+            e.effort,
+            e.duration,
+            e.priceRange,
+            e.source,
+            r.name,
+          ].join(" "),
           onSelect: go(() =>
             navigate({ to: "/regionen/$slug", params: { slug: r.slug }, hash: "aktivitaeten" }),
           ),
@@ -67,9 +87,21 @@ function useBuckets(close: () => void): Buckets {
           title: f.title,
           sublabel: `Kulinarisches · ${r.name}`,
           icon: Utensils,
-          searchText: `${f.title} ${f.description} ${f.location} ${r.name}`,
+          searchText: [f.title, f.description, f.location, f.insiderTip ?? "", r.name].join(" "),
           onSelect: go(() =>
             navigate({ to: "/regionen/$slug", params: { slug: r.slug }, hash: "kulinarisches" }),
+          ),
+        });
+      });
+      r.regionalSafety.forEach((s) => {
+        safety.push({
+          id: `safety-${r.slug}-${s.id}`,
+          title: s.title,
+          sublabel: `Sicherheit · ${r.name}`,
+          icon: ShieldCheck,
+          searchText: [s.title, s.description, s.category, s.source, r.name].join(" "),
+          onSelect: go(() =>
+            navigate({ to: "/regionen/$slug", params: { slug: r.slug }, hash: "sicherheit" }),
           ),
         });
       });
@@ -79,10 +111,36 @@ function useBuckets(close: () => void): Buckets {
       title: f.q,
       sublabel: "FAQ & Nützliches",
       icon: HelpCircle,
-      searchText: `${f.q} ${f.a}`,
+      searchText: `${f.q} ${f.a} ${f.sources.map((s) => s.label).join(" ")}`,
       onSelect: go(() => navigate({ to: "/faq" })),
     }));
-    return { regions: regionItems, activities, food, faq: faqItems };
+    const pages: ResultItem[] = [
+      {
+        id: "page-regionen",
+        title: "Regionen-Übersicht",
+        sublabel: "Alle Regionen Neuseelands",
+        icon: Compass,
+        searchText: "Regionen Übersicht Nordinsel Südinsel Stewart Island Aotearoa",
+        onSelect: go(() => navigate({ to: "/regionen" })),
+      },
+      {
+        id: "page-impressum",
+        title: "Impressum",
+        sublabel: "Anbieterkennzeichnung & Quellen",
+        icon: FileText,
+        searchText: "Impressum Anbieter Kontakt Quellen DOC Department of Conservation Naturschutzbehörde Haftung",
+        onSelect: go(() => navigate({ to: "/impressum" })),
+      },
+      {
+        id: "page-datenschutz",
+        title: "Datenschutz",
+        sublabel: "Hinweise zum Datenschutz",
+        icon: FileText,
+        searchText: "Datenschutz DSGVO Cookies Privatsphäre",
+        onSelect: go(() => navigate({ to: "/datenschutz" })),
+      },
+    ];
+    return { regions: regionItems, activities, food, safety, faq: faqItems, pages };
   }, [navigate, close]);
 }
 
@@ -132,9 +190,23 @@ function ResultGroups({ buckets, query }: { buckets: Buckets; query: string }) {
           ))}
         </CommandGroup>
       )}
+      {buckets.safety.length > 0 && (
+        <CommandGroup heading="Sicherheit">
+          {buckets.safety.map((it) => (
+            <ResultRow key={it.id} item={it} />
+          ))}
+        </CommandGroup>
+      )}
       {buckets.faq.length > 0 && (
         <CommandGroup heading="FAQ & Nützliches">
           {buckets.faq.map((it) => (
+            <ResultRow key={it.id} item={it} />
+          ))}
+        </CommandGroup>
+      )}
+      {buckets.pages.length > 0 && (
+        <CommandGroup heading="Seiten">
+          {buckets.pages.map((it) => (
             <ResultRow key={it.id} item={it} />
           ))}
         </CommandGroup>

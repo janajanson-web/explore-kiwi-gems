@@ -10,6 +10,9 @@ import foodMarlborough from "@/assets/food-marlborough-sauvignon.jpg";
 import foodBluffOysters from "@/assets/food-bluff-oysters.jpg";
 import foodCentralOtago from "@/assets/food-central-otago-pinot.jpg";
 import foodCanterburyLamb from "@/assets/food-canterbury-lamb.jpg";
+import excTongariro from "@/assets/excursion-tongariro.jpg";
+import excCapeReinga from "@/assets/excursion-cape-reinga.jpg";
+import foodHawkesBay from "@/assets/food-hawkes-bay.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -94,6 +97,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/tongariro-national-park/things-to-do/tongariro-alpine-crossing/",
         imageQuery: "tongariro-alpine-crossing-emerald-lakes",
+        image: excTongariro,
       },
       {
         id: "cape-reinga",
@@ -105,6 +109,7 @@ export const regions: Region[] = [
         source: "Tourism New Zealand",
         sourceUrl: "https://www.newzealand.com/de/cape-reinga/",
         imageQuery: "cape-reinga-lighthouse-new-zealand",
+        image: excCapeReinga,
       },
       {
         id: "waitomo",
@@ -155,6 +160,7 @@ export const regions: Region[] = [
           "Sonnenverwöhnte Hügel, Art-déco-Charme in Napier und über 70 Weingüter. Hawke's Bay ist berühmt für vollmundigen Chardonnay und elegante Syrah – die meisten Cellar Doors haben Bistros mit lokalem Käse und Lamm.",
         insiderTip: "Mit dem Rad über die Hawke's Bay Trails – flache Strecken zwischen den Weingütern.",
         imageQuery: "hawkes-bay-vineyard-new-zealand",
+        image: foodHawkesBay,
       },
       {
         id: "coromandel-oysters",

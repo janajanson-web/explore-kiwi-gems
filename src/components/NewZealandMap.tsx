@@ -1,116 +1,150 @@
 import { useNavigate } from "@tanstack/react-router";
-import { Plane } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import nzMap from "@/assets/nz-map.png";
 
 type IslandSlug = "nordinsel" | "suedinsel" | "stewart-island";
 
-type Airport = {
-  code: string;
-  name: string;
-  x: number; // % relativ zum Bild
-  y: number;
-};
-
-const airports: Airport[] = [
-  { code: "AKL", name: "Auckland", x: 56.5, y: 22.5 },
-  { code: "WLG", name: "Wellington", x: 62.5, y: 49.5 },
-  { code: "CHC", name: "Christchurch", x: 52.5, y: 66.5 },
-  { code: "ZQN", name: "Queenstown", x: 36.5, y: 79.5 },
-  { code: "DUD", name: "Dunedin", x: 46.5, y: 83.5 },
-  { code: "IVC", name: "Invercargill", x: 38.5, y: 88.5 },
-];
-
-type IslandZone = {
+type IslandShape = {
   slug: IslandSlug;
   label: string;
-  // Bounding box in % of the image
-  left: number;
-  top: number;
-  width: number;
-  height: number;
-  rounded: string;
+  // Polygonpunkte in % der Bildfläche (viewBox 100x100), möglichst entlang der Küstenlinie
+  points: string;
+  // Position des Labels in %
+  labelX: number;
+  labelY: number;
 };
 
-const islandZones: IslandZone[] = [
-  { slug: "nordinsel", label: "Nordinsel", left: 38, top: 4, width: 42, height: 48, rounded: "rounded-[55%_45%_60%_40%/55%_50%_50%_45%]" },
-  { slug: "suedinsel", label: "Südinsel", left: 18, top: 54, width: 52, height: 38, rounded: "rounded-[60%_40%_55%_45%/50%_55%_45%_55%]" },
+const islands: IslandShape[] = [
+  {
+    slug: "nordinsel",
+    label: "Nordinsel",
+    points: [
+      [52, 4],   // Cape Reinga
+      [56, 8],
+      [60, 14],
+      [64, 18],  // Coromandel
+      [70, 22],  // Bay of Plenty
+      [76, 28],  // East Cape
+      [74, 34],
+      [70, 40],  // Hawke's Bay
+      [68, 46],
+      [64, 51],  // Wairarapa
+      [60, 52],  // Wellington
+      [55, 50],
+      [50, 46],
+      [44, 40],  // Taranaki Bulge
+      [42, 36],
+      [46, 30],
+      [48, 24],
+      [50, 18],
+      [50, 12],
+      [51, 8],
+    ]
+      .map((p) => p.join(","))
+      .join(" "),
+    labelX: 60,
+    labelY: 30,
+  },
+  {
+    slug: "suedinsel",
+    label: "Südinsel",
+    points: [
+      [24, 54],  // Cape Farewell
+      [32, 55],
+      [42, 56],
+      [50, 58],  // Marlborough
+      [54, 62],  // Kaikoura
+      [56, 68],  // Christchurch
+      [54, 74],
+      [52, 80],  // Otago
+      [48, 84],  // Dunedin
+      [44, 88],
+      [38, 90],  // Bluff
+      [30, 88],
+      [24, 84],  // Fiordland SW
+      [20, 78],
+      [18, 72],  // West Coast
+      [20, 66],
+      [22, 60],
+    ]
+      .map((p) => p.join(","))
+      .join(" "),
+    labelX: 38,
+    labelY: 72,
+  },
+  {
+    slug: "stewart-island",
+    label: "Stewart Island",
+    points: [
+      [32, 93],
+      [37, 92],
+      [42, 93],
+      [44, 96],
+      [40, 99],
+      [34, 98.5],
+      [31, 96],
+    ]
+      .map((p) => p.join(","))
+      .join(" "),
+    labelX: 50,
+    labelY: 96,
+  },
 ];
 
 export function NewZealandMap() {
   const navigate = useNavigate();
 
   return (
-    <TooltipProvider delayDuration={150}>
-      <div className="relative mx-auto w-full max-w-2xl">
-        <img
-          src={nzMap}
-          alt="Karte Neuseelands mit den wichtigsten Flughäfen"
-          className="h-auto w-full rounded-xl border border-border shadow-sm"
-          loading="lazy"
-        />
+    <div className="relative mx-auto w-full max-w-2xl">
+      <img
+        src={nzMap}
+        alt="Karte Neuseelands mit anklickbaren Regionen"
+        className="h-auto w-full rounded-xl border border-border shadow-sm"
+        loading="lazy"
+      />
 
-        {/* Klickbare Insel-Zonen mit Pulsation */}
-        {islandZones.map((zone) => (
-          <button
-            key={zone.slug}
-            type="button"
-            aria-label={`${zone.label} – Region öffnen`}
-            onClick={() => navigate({ to: "/regionen/$slug", params: { slug: zone.slug } })}
-            style={{
-              left: `${zone.left}%`,
-              top: `${zone.top}%`,
-              width: `${zone.width}%`,
-              height: `${zone.height}%`,
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        className="absolute inset-0 h-full w-full"
+        aria-hidden="true"
+      >
+        {islands.map((isl) => (
+          <polygon
+            key={isl.slug}
+            points={isl.points}
+            onClick={() => navigate({ to: "/regionen/$slug", params: { slug: isl.slug } })}
+            className="cursor-pointer fill-[color:var(--forest)]/0 stroke-[color:var(--forest)]/60 transition hover:fill-[color:var(--forest)]/25 hover:stroke-[color:var(--forest)] focus:outline-none focus-visible:fill-[color:var(--forest)]/30"
+            strokeWidth={0.6}
+            vectorEffect="non-scaling-stroke"
+            tabIndex={0}
+            role="button"
+            aria-label={`${isl.label} – Region öffnen`}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                navigate({ to: "/regionen/$slug", params: { slug: isl.slug } });
+              }
             }}
-            className={`group absolute z-10 cursor-pointer ${zone.rounded} bg-[color:var(--forest)]/0 ring-2 ring-[color:var(--forest)]/40 transition hover:bg-[color:var(--forest)]/20 hover:ring-[color:var(--forest)] hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-[color:var(--ocean)] motion-safe:animate-pulse`}
           >
-            <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-md bg-[color:var(--forest)]/0 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--forest)] opacity-0 transition group-hover:bg-[color:var(--soft-white)]/90 group-hover:opacity-100">
-              {zone.label}
-            </span>
-          </button>
+            <title>{isl.label}</title>
+          </polygon>
         ))}
+      </svg>
 
-        {/* Stewart Island – eigene sichtbare Insel-Form */}
-        <button
-          type="button"
-          aria-label="Stewart Island – Region öffnen"
-          onClick={() => navigate({ to: "/regionen/$slug", params: { slug: "stewart-island" } })}
-          style={{ left: "30%", top: "93%", width: "14%", height: "8%" }}
-          className="group absolute z-10 -translate-y-1/2 cursor-pointer rounded-[60%_40%_55%_45%/55%_60%_40%_50%] bg-[color:var(--forest)] ring-2 ring-[color:var(--soft-white)] shadow-md transition hover:scale-110 hover:bg-[color:var(--forest)] hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-[color:var(--ocean)] motion-safe:animate-pulse"
+      {/* Region-Labels über der SVG (nicht-interaktiv) */}
+      {islands.map((isl) => (
+        <span
+          key={`label-${isl.slug}`}
+          style={{ left: `${isl.labelX}%`, top: `${isl.labelY}%` }}
+          className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-[color:var(--soft-white)]/85 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[color:var(--forest)] shadow-sm md:text-xs"
         >
-          <span className="pointer-events-none absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-[color:var(--forest)] px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[color:var(--soft-white)] shadow">
-            Stewart Island
-          </span>
-        </button>
+          {isl.label}
+        </span>
+      ))}
 
-        {/* Flughäfen – statische Info-Marker (nicht klickbar) */}
-        {airports.map((ap) => (
-          <Tooltip key={ap.code}>
-            <TooltipTrigger asChild>
-              <span
-                role="img"
-                aria-label={`Flughafen ${ap.name} (${ap.code})`}
-                style={{ left: `${ap.x}%`, top: `${ap.y}%` }}
-                className="pointer-events-auto absolute z-20 -translate-x-1/2 -translate-y-1/2"
-              >
-                <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--muted-red)] text-[color:var(--soft-white)] ring-2 ring-[color:var(--soft-white)] shadow">
-                  <Plane className="h-3 w-3" />
-                </span>
-                <span className="pointer-events-none absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-[color:var(--forest)] px-1.5 py-0.5 text-[10px] font-semibold text-[color:var(--soft-white)] shadow">
-                  {ap.code}
-                </span>
-              </span>
-            </TooltipTrigger>
-            <TooltipContent>
-              <span className="font-semibold">{ap.code}</span> · {ap.name}
-            </TooltipContent>
-          </Tooltip>
-        ))}
-      </div>
       <p className="mt-4 text-center text-base font-medium text-foreground md:text-lg">
-        Klicke auf eine Insel, um die zugehörige Region zu öffnen. Flughäfen dienen nur zur Orientierung.
+        Klicke auf eine Insel, um die zugehörige Region zu öffnen.
       </p>
-    </TooltipProvider>
+    </div>
   );
 }

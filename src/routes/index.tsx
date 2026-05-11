@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { regions } from "@/lib/regions";
-import { Compass, Mountain, ShieldCheck, HelpCircle } from "lucide-react";
+import { Compass, Mountain, ShieldCheck, HelpCircle, Utensils } from "lucide-react";
 import cableBay from "@/assets/hero-cable-bay.jpg";
 import haka from "@/assets/hero-haka.jpg";
 import auckland from "@/assets/hero-auckland.jpg";
@@ -90,6 +90,7 @@ type QuickLink = {
   icon: typeof Compass;
   title: string;
   text: string;
+  hash?: string;
 } & (
   | { to: "/regionen" | "/faq"; params?: undefined }
   | { to: "/regionen/$slug"; params: { slug: string } }
@@ -98,8 +99,9 @@ type QuickLink = {
 const quickLinks: QuickLink[] = [
   { icon: Compass, title: "Top-Regionen", text: "Sehenswerte Orte", to: "/regionen" },
   { icon: Mountain, title: "Abenteuer & Aktivitäten", text: "Wandern & Outdoor", to: "/regionen/$slug", params: { slug: "suedinsel" } },
-  { icon: ShieldCheck, title: "Sicherheit", text: "Hinweise vor Ort", to: "/faq" },
-  { icon: HelpCircle, title: "Häufige Fragen", text: "Visum, Klima & mehr", to: "/faq" },
+  { icon: Utensils, title: "Kulinarisches", text: "Essen & Wein der Region", to: "/regionen/$slug", params: { slug: "nordinsel" }, hash: "kulinarisches" },
+  { icon: ShieldCheck, title: "Sicherheit", text: "Hinweise vor Ort", to: "/faq", hash: "sicherheit" },
+  { icon: HelpCircle, title: "FAQ & Nützliches", text: "Visum, Klima & mehr", to: "/faq" },
 ];
 
 function Index() {
@@ -129,14 +131,14 @@ function Index() {
 
       {/* Quick links bar */}
       <section className="border-b border-border bg-secondary">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 py-8 md:grid-cols-4 md:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 py-8 sm:grid-cols-3 md:grid-cols-5 md:px-8">
           {quickLinks.map((it) => {
             const inner = (
               <>
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                   <it.icon className="h-5 w-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-xs font-semibold uppercase tracking-wider text-foreground">{it.title}</div>
                   <div className="text-sm text-muted-foreground">{it.text}</div>
                 </div>
@@ -145,11 +147,11 @@ function Index() {
             const cls = "group flex items-center gap-3 rounded-lg p-3 transition hover:bg-card hover:shadow-sm";
             if (it.to === "/regionen/$slug") {
               return (
-                <Link key={it.title} to={it.to} params={it.params} className={cls}>{inner}</Link>
+                <Link key={it.title} to={it.to} params={it.params} hash={it.hash} className={cls}>{inner}</Link>
               );
             }
             return (
-              <Link key={it.title} to={it.to} className={cls}>{inner}</Link>
+              <Link key={it.title} to={it.to} hash={it.hash} className={cls}>{inner}</Link>
             );
           })}
         </div>

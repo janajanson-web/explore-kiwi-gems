@@ -148,16 +148,20 @@ function RegionDetail() {
                     <Badge className={cn("shrink-0", effortClass[e.effort])}>{effortLabel[e.effort]}</Badge>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.description}</p>
-                  <div className="mt-4 space-y-2 border-t border-[color:var(--sand,theme(colors.secondary.DEFAULT))] pt-3">
-                    <div className="flex items-baseline gap-2 text-sm">
-                      <Clock className="h-4 w-4 shrink-0 translate-y-0.5 text-primary" aria-hidden />
-                      <span className="font-medium text-foreground">Dauer:</span>
+                  <div className="mt-4 space-y-3 border-t border-[color:var(--sand,theme(colors.secondary.DEFAULT))] pt-3 text-sm">
+                    <div className="grid grid-cols-[1.25rem_5.5rem_1fr] items-start gap-x-2 gap-y-1">
+                      <Clock className="mt-0.5 h-4 w-4 text-primary" aria-hidden />
+                      <span className="font-medium text-foreground whitespace-nowrap">Dauer:</span>
                       <span className="text-muted-foreground">{e.duration}</span>
                     </div>
-                    <div className="flex items-baseline gap-2 text-sm">
-                      <Wallet className="h-4 w-4 shrink-0 translate-y-0.5 text-primary" aria-hidden />
-                      <span className="font-medium text-foreground">Kosten p. P.:</span>
-                      <span className="text-muted-foreground">{e.priceRange}</span>
+                    <div className="grid grid-cols-[1.25rem_5.5rem_1fr] items-start gap-x-2 gap-y-1">
+                      <Wallet className="mt-0.5 h-4 w-4 text-primary" aria-hidden />
+                      <span className="font-medium text-foreground whitespace-nowrap">Kosten p. P.:</span>
+                      <ul className="space-y-0.5 text-muted-foreground">
+                        {e.priceRange.split("·").map((part, idx) => (
+                          <li key={idx}>{part.trim()}</li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                   <div className="mt-4 border-t border-border pt-3 text-xs text-muted-foreground">

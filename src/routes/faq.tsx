@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Search, AlertTriangle, Phone, Car, Sun, Waves, Mountain } from "lucide-react";
+import { Search, AlertTriangle, Phone, Car, Sun, Waves, Mountain, ShieldCheck } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   Accordion,
@@ -8,13 +8,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { faqs } from "@/lib/faq";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ & Sicherheit – Reise nach Neuseeland" },
+      { title: "FAQ & Nützliches – Reise nach Neuseeland" },
       { name: "description", content: "Antworten zu Visum, NZeTA, Klima sowie wichtige Sicherheitshinweise: Notruf 111, Linksverkehr, Erdbeben, UV-Strahlung und mehr." },
-      { property: "og:title", content: "FAQ & Sicherheit – Reise nach Neuseeland" },
+      { property: "og:title", content: "FAQ & Nützliches – Reise nach Neuseeland" },
       { property: "og:description", content: "Antworten zu Visum, NZeTA, Klima, Sicherheit und mehr." },
     ],
   }),
@@ -28,57 +29,6 @@ const safetyItems = [
   { icon: Waves, title: "Tsunami-Warnungen", text: "Bei langem starken Beben an der Küste sofort hochgelegenes Gelände aufsuchen – ohne auf offizielle Warnung zu warten." },
   { icon: Sun, title: "UV-Strahlung", text: "Die UV-Strahlung ist 40 % höher als in Mitteleuropa. Sonnencreme LSF 50+, Hut und langärmlige Kleidung." },
   { icon: AlertTriangle, title: "Wetter in den Bergen", text: "Schneller Wetterumschwung möglich. DOC-Hütten registrieren, Wetterbericht (MetService) und Tracks-Status prüfen." },
-];
-
-const faqs = [
-  {
-    q: "Brauche ich ein Visum für Neuseeland?",
-    a: "Deutsche, österreichische und schweizerische Staatsangehörige benötigen für touristische Aufenthalte bis 90 Tage kein klassisches Visum, jedoch eine elektronische Reisegenehmigung (NZeTA) plus Tourismusabgabe (IVL).",
-    sources: [{ label: "Immigration NZ", url: "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/nzeta" }],
-  },
-  {
-    q: "Was ist die NZeTA und wie beantrage ich sie?",
-    a: "Die NZeTA (New Zealand Electronic Travel Authority) ist 2 Jahre gültig und kostet 17 NZD (App) bzw. 23 NZD (Web), zzgl. 100 NZD IVL. Beantragung idealerweise mind. 72 Stunden vor Abflug.",
-    sources: [{ label: "NZeTA-Antrag", url: "https://nzeta.immigration.govt.nz/" }],
-  },
-  {
-    q: "Wann ist die beste Reisezeit?",
-    a: "Hochsaison ist Dezember bis Februar (Sommer). Für Ski Juli bis September. Wandern & wenig Andrang: März/April und Oktober/November.",
-    sources: [{ label: "Tourism NZ – Klima", url: "https://www.newzealand.com/de/feature/weather-and-climate/" }],
-  },
-  {
-    q: "Welche Gesundheitsvorsorge brauche ich?",
-    a: "Keine Pflichtimpfungen für Direkteinreisen aus DACH. Standardimpfungen aktuell halten. Eine Auslandskrankenversicherung mit Rücktransport ist dringend empfohlen.",
-    sources: [{ label: "Auswärtiges Amt", url: "https://www.auswaertiges-amt.de/de/service/laender/neuseeland-node/neuseelandsicherheit/211628" }],
-  },
-  {
-    q: "Kann ich Leitungswasser trinken?",
-    a: "In Städten ist Leitungswasser unbedenklich. In der Wildnis Wasser aus Bächen und Seen vor dem Trinken filtern oder abkochen (Giardien-Risiko).",
-    sources: [{ label: "Ministry of Health NZ", url: "https://www.health.govt.nz/your-health/healthy-living/environmental-health/drinking-water" }],
-  },
-  {
-    q: "Welche Notrufnummer gilt in Neuseeland?",
-    a: "Die zentrale Notrufnummer ist 111 (Polizei, Feuerwehr, Rettungsdienst). Für Wanderer: Personal Locator Beacon (PLB) mitnehmen.",
-    sources: [{ label: "NZ Police", url: "https://www.police.govt.nz/contact-us/emergency" }],
-  },
-  {
-    q: "Wie funktioniert der Linksverkehr?",
-    a: "In Neuseeland herrscht Linksverkehr. An Kreisverkehren hat das von rechts kommende Fahrzeug Vorfahrt. Viele Straßen sind schmal und kurvig – realistische Fahrzeiten einplanen.",
-    sources: [{ label: "NZ Transport Agency", url: "https://www.nzta.govt.nz/safety/driving-safely/visiting-drivers/" }],
-  },
-  {
-    q: "Welche Naturgefahren gibt es?",
-    a: "Erdbeben, Vulkane (z. B. Tongariro, White Island), Tsunamis, schnelle Wetterumschwünge in den Bergen und starke UV-Strahlung. Vor Outdoor-Aktivitäten Wetter und Warnungen prüfen.",
-    sources: [
-      { label: "GeoNet", url: "https://www.geonet.org.nz/" },
-      { label: "MetService", url: "https://www.metservice.com/" },
-    ],
-  },
-  {
-    q: "Brauche ich einen internationalen Führerschein?",
-    a: "Empfohlen ist ein internationaler Führerschein zusammen mit dem deutschen Führerschein, oder eine beglaubigte englische Übersetzung. Gültig bis zu 12 Monate.",
-    sources: [{ label: "NZTA – Visiting drivers", url: "https://www.nzta.govt.nz/safety/driving-safely/visiting-drivers/" }],
-  },
 ];
 
 function FAQ() {

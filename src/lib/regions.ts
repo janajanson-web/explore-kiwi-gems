@@ -21,6 +21,7 @@ import excWaitomo from "@/assets/excursion-waitomo.jpg";
 import excKiwiSpotting from "@/assets/excursion-kiwi-spotting.jpg";
 import excMasonBay from "@/assets/excursion-mason-bay.jpg";
 import foodMuttonbird from "@/assets/food-muttonbird.jpg";
+import foodSouthSeaHotel from "@/assets/food-south-sea-hotel.jpg";
 import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
 import excRakiuraTrack from "@/assets/excursion-rakiura-track.jpg";
 
@@ -452,6 +453,7 @@ export const regions: Region[] = [
           "Das Herz des Inseldorfs: einfaches Pub-Ambiente, dafür fangfrischer Sole, Blue Cod und Tuna direkt vom Hafen nebenan. Donnerstags Pub-Quiz mit allen Inselbewohnern.",
         insiderTip: "Den Blue Cod 'beer-battered' bestellen – die lokale Spezialität.",
         imageQuery: "stewart-island-fresh-seafood",
+        image: foodSouthSeaHotel,
       },
       {
         id: "mutton-bird",

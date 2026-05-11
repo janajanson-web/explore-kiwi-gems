@@ -190,9 +190,23 @@ function ResultGroups({ buckets, query }: { buckets: Buckets; query: string }) {
           ))}
         </CommandGroup>
       )}
+      {buckets.safety.length > 0 && (
+        <CommandGroup heading="Sicherheit">
+          {buckets.safety.map((it) => (
+            <ResultRow key={it.id} item={it} />
+          ))}
+        </CommandGroup>
+      )}
       {buckets.faq.length > 0 && (
         <CommandGroup heading="FAQ & Nützliches">
           {buckets.faq.map((it) => (
+            <ResultRow key={it.id} item={it} />
+          ))}
+        </CommandGroup>
+      )}
+      {buckets.pages.length > 0 && (
+        <CommandGroup heading="Seiten">
+          {buckets.pages.map((it) => (
             <ResultRow key={it.id} item={it} />
           ))}
         </CommandGroup>

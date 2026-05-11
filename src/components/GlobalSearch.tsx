@@ -332,7 +332,7 @@ export function GlobalSearchTrigger({ className }: { className?: string }) {
         <Search className="h-4 w-4" />
         <span className="hidden lg:inline">Suchen</span>
       </button>
-      <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandDialog open={open} onOpenChange={setOpen} commandProps={{ filter: substringFilter }}>
         <CommandInput
           value={query}
           onValueChange={setQuery}

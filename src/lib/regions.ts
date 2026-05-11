@@ -18,6 +18,9 @@ import foodCoromandelOysters from "@/assets/food-coromandel-oysters.jpg";
 import foodHangiRotorua from "@/assets/food-hangi-rotorua.jpg";
 import excCathedralCove from "@/assets/excursion-cathedral-cove.jpg";
 import excWaitomo from "@/assets/excursion-waitomo.jpg";
+import excKiwiSpotting from "@/assets/excursion-kiwi-spotting.jpg";
+import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
+import excRakiuraTrack from "@/assets/excursion-rakiura-track.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -399,6 +402,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/things-to-do/tracks/rakiura-track/",
         imageQuery: "rakiura-track-stewart-island",
+        image: excRakiuraTrack,
       },
       {
         id: "ulva-island",
@@ -410,6 +414,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/places/ulva-island-te-wharawhara/",
         imageQuery: "ulva-island-native-bird-new-zealand",
+        image: excUlvaIsland,
       },
       {
         id: "kiwi-spotting",
@@ -421,6 +426,7 @@ export const regions: Region[] = [
         source: "Lokale Guides (DOC-zertifiziert)",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/things-to-do/",
         imageQuery: "kiwi-bird-new-zealand-night",
+        image: excKiwiSpotting,
       },
       {
         id: "mason-bay",

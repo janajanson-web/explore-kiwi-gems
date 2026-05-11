@@ -15,6 +15,18 @@ import { regions } from "@/lib/regions";
 import { faqs } from "@/lib/faq";
 import { cn } from "@/lib/utils";
 
+/**
+ * Substring-Filter (case-insensitive, ohne Fuzzy-Matching).
+ * Verhindert, dass z. B. "wein" auf "Wetter & Wind" matcht.
+ * Mehrere Wörter im Query müssen alle vorkommen.
+ */
+function substringFilter(value: string, search: string): number {
+  const haystack = value.toLowerCase();
+  const tokens = search.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  if (tokens.length === 0) return 1;
+  return tokens.every((t) => haystack.includes(t)) ? 1 : 0;
+}
+
 type ResultItem = {
   id: string;
   title: string;

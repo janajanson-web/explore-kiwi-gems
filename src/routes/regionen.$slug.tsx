@@ -204,7 +204,9 @@ function RegionDetail() {
           <p className="mt-2 text-muted-foreground">
             {r.slug === "stewart-island"
               ? "Geschmack der Insel – fangfrische Meeresfrüchte und traditionelle Spezialitäten direkt vom Hafen."
-              : "Geschmack der Region – Spezialitäten, Märkte, Manufakturen und ausgewählte Weine."}
+              : r.slug === "suedinsel"
+                ? "Geschmack der Südinsel – weltberühmte Weinregionen, frische Meeresfrüchte und alpine Spezialitäten."
+                : "Geschmack der Region – Spezialitäten, Märkte, Manufakturen und ausgewählte Weine."}
           </p>
 
           <div className="mt-10 space-y-12">

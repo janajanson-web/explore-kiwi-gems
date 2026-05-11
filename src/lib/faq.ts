@@ -36,6 +36,14 @@ export const faqs: FaqEntry[] = [
     sources: [{ label: "NZ Police", url: "https://www.police.govt.nz/contact-us/emergency" }],
   },
   {
+    q: "Welche Währung gilt in Neuseeland und wie ist der Wechselkurs?",
+    a: "Gezahlt wird in Neuseeland-Dollar (NZD, $ oder NZ$). 1 NZD = 100 Cent. Karten (Visa/Mastercard, kontaktlos) werden fast überall akzeptiert, Bargeld nur in geringen Mengen nötig. Den tagesaktuellen Wechselkurs EUR ↔ NZD findest du z. B. bei XE oder der Europäischen Zentralbank.",
+    sources: [
+      { label: "XE – aktueller Kurs EUR/NZD", url: "https://www.xe.com/currencyconverter/convert/?Amount=1&From=EUR&To=NZD" },
+      { label: "EZB – Referenzkurs NZD", url: "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-nzd.en.html" },
+    ],
+  },
+  {
     q: "Wie funktioniert der Linksverkehr?",
     a: "In Neuseeland herrscht Linksverkehr. An Kreisverkehren hat das von rechts kommende Fahrzeug Vorfahrt. Viele Straßen sind schmal und kurvig – realistische Fahrzeiten einplanen.",
     sources: [{ label: "NZ Transport Agency", url: "https://www.nzta.govt.nz/safety/driving-safely/visiting-drivers/" }],

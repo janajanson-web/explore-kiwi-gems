@@ -37,7 +37,7 @@ export const faqs: FaqEntry[] = [
   },
   {
     q: "Welche Währung gilt in Neuseeland und wie ist der Wechselkurs?",
-    a: "Gezahlt wird in Neuseeland-Dollar (NZD, $ oder NZ$). 1 NZD = 100 Cent. Karten (Visa/Mastercard, kontaktlos) werden fast überall akzeptiert, Bargeld nur in geringen Mengen nötig. Den tagesaktuellen Wechselkurs EUR ↔ NZD findest du z. B. bei XE oder der Europäischen Zentralbank.",
+    a: "Gezahlt wird in Neuseeland-Dollar (NZD, $ oder NZ$). 1 NZD = 100 Cent. Karten (Visa/Mastercard, kontaktlos) werden fast überall akzeptiert, Bargeld nur in geringen Mengen nötig. Wechselkurs (Stand 11. Mai 2026): 1 NZD = 0,5058 EUR (Spanne 30 Tage: 0,497–0,507) — Faustregel: 2 NZD ≈ 1 EUR. Den tagesaktuellen Wechselkurs EUR ↔ NZD findest du z. B. bei XE oder der Europäischen Zentralbank.",
     sources: [
       { label: "XE – aktueller Kurs EUR/NZD", url: "https://www.xe.com/currencyconverter/convert/?Amount=1&From=EUR&To=NZD" },
       { label: "EZB – Referenzkurs NZD", url: "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-nzd.en.html" },

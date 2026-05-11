@@ -16,6 +16,7 @@ import foodHawkesBay from "@/assets/food-hawkes-bay.jpg";
 import foodAucklandFishMarket from "@/assets/food-auckland-fish-market.jpg";
 import foodCoromandelOysters from "@/assets/food-coromandel-oysters.jpg";
 import foodHangiRotorua from "@/assets/food-hangi-rotorua.jpg";
+import excCathedralCove from "@/assets/excursion-cathedral-cove.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -135,6 +136,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/coromandel/",
         imageQuery: "cathedral-cove-coromandel-new-zealand",
+        image: excCathedralCove,
       },
     ],
     foodAndWine: [

@@ -19,6 +19,8 @@ import foodHangiRotorua from "@/assets/food-hangi-rotorua.jpg";
 import excCathedralCove from "@/assets/excursion-cathedral-cove.jpg";
 import excWaitomo from "@/assets/excursion-waitomo.jpg";
 import excKiwiSpotting from "@/assets/excursion-kiwi-spotting.jpg";
+import excMasonBay from "@/assets/excursion-mason-bay.jpg";
+import foodMuttonbird from "@/assets/food-muttonbird.jpg";
 import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
 import excRakiuraTrack from "@/assets/excursion-rakiura-track.jpg";
 
@@ -438,6 +440,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/places/mason-bay/",
         imageQuery: "mason-bay-stewart-island-beach",
+        image: excMasonBay,
       },
     ],
     foodAndWine: [
@@ -457,6 +460,7 @@ export const regions: Region[] = [
         description:
           "Eine der traditionellsten Maori-Saisondelikatessen: junge Sturmtaucher mit kräftig-öligem, ganz eigenständigem Geschmack. Nur zur Erntezeit auf Karten der Inselrestaurants zu finden.",
         imageQuery: "traditional-maori-food-new-zealand",
+        image: foodMuttonbird,
       },
     ],
     regionalSafety: [

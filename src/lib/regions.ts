@@ -8,6 +8,8 @@ import excRouteburn from "@/assets/excursion-routeburn.jpg";
 import excRoysPeak from "@/assets/excursion-roys-peak.jpg";
 import foodMarlborough from "@/assets/food-marlborough-sauvignon.jpg";
 import foodBluffOysters from "@/assets/food-bluff-oysters.jpg";
+import foodCentralOtago from "@/assets/food-central-otago-pinot.jpg";
+import foodCanterburyLamb from "@/assets/food-canterbury-lamb.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -296,6 +298,7 @@ export const regions: Region[] = [
         description:
           "Im südlichsten Weinanbaugebiet der Welt entstehen mineralische, kühle Pinot Noirs mit Tiefe. Tagestouren ab Queenstown führen durch goldbraune Hügel und alte Goldgräberorte.",
         imageQuery: "central-otago-pinot-noir-vineyard",
+        image: foodCentralOtago,
       },
       {
         id: "bluff-oysters",
@@ -313,6 +316,7 @@ export const regions: Region[] = [
         description:
           "Der traditionelle Sonntagsbraten der Südinsel: zartes Lamm aus den Canterbury-Ebenen mit Rosmarin und Minzsoße. In Christchurch-Pubs wie The Original Sin Tavern fast schon Pflicht.",
         imageQuery: "new-zealand-lamb-roast",
+        image: foodCanterburyLamb,
       },
     ],
     regionalSafety: [

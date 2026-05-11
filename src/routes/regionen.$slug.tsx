@@ -1,7 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { getRegion, regions, type Region } from "@/lib/regions";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { getRegion, regions, type Region, type Effort, type SafetyItem } from "@/lib/regions";
 
 export const Route = createFileRoute("/regionen/$slug")({
   loader: ({ params }) => {
@@ -24,6 +27,29 @@ export const Route = createFileRoute("/regionen/$slug")({
   },
   component: RegionDetail,
 });
+
+const imageFor = (query: string, w = 1200, h = 800) =>
+  `https://loremflickr.com/${w}/${h}/${encodeURIComponent(query)}?lock=${Math.abs(
+    [...query].reduce((a, c) => a + c.charCodeAt(0), 0),
+  )}`;
+
+const effortLabel: Record<Effort, string> = {
+  easy: "Leicht",
+  moderate: "Mittel",
+  challenging: "Anspruchsvoll",
+};
+
+const effortClass: Record<Effort, string> = {
+  easy: "bg-primary text-primary-foreground hover:bg-primary",
+  moderate: "bg-[hsl(206_38%_40%)] text-primary-foreground hover:bg-[hsl(206_38%_40%)]",
+  challenging: "bg-destructive text-destructive-foreground hover:bg-destructive",
+};
+
+const safetyIcon: Record<SafetyItem["category"], typeof AlertTriangle> = {
+  natural: AlertTriangle,
+  weather: CloudRain,
+  general: Info,
+};
 
 function RegionDetail() {
   const { region: r } = Route.useLoaderData() as { region: Region };
@@ -98,6 +124,156 @@ function RegionDetail() {
           </ul>
         </aside>
       </div>
+
+      {/* Excursions */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
+          <h2 className="font-display text-3xl font-bold md:text-4xl">Ausflüge & Wanderungen</h2>
+          <p className="mt-2 text-muted-foreground">Unsere Empfehlungen – von Spaziergang bis Mehrtagestour.</p>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {r.excursions.map((e) => (
+              <Card key={e.id} className="overflow-hidden transition-shadow hover:shadow-lg">
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
+                  <img
+                    src={imageFor(e.imageQuery)}
+                    alt={e.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="font-display text-xl font-bold leading-tight text-foreground">{e.title}</h3>
+                    <Badge className={cn("shrink-0", effortClass[e.effort])}>{effortLabel[e.effort]}</Badge>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {e.tags.map((t) => (
+                      <span key={t} className="rounded-md bg-secondary px-2 py-0.5 text-xs text-foreground">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-4 border-t border-border pt-3 text-xs text-muted-foreground">
+                    Quelle:{" "}
+                    {e.sourceUrl ? (
+                      <a
+                        href={e.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-primary hover:text-accent"
+                      >
+                        {e.source} <ExternalLink className="h-3 w-3" />
+                      </a>
+                    ) : (
+                      <span className="text-foreground">{e.source}</span>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <Alert className="mt-8 border-primary/20 bg-secondary">
+            <ShieldAlert className="h-5 w-5 !text-primary" />
+            <AlertDescription className="text-foreground">
+              <strong className="font-semibold text-primary">Hinweis:</strong> Vor jeder Aktivität bitte unsere{" "}
+              <Link to="/faq" className="font-semibold text-primary underline underline-offset-2 hover:text-accent">
+                Sicherheitsinformationen
+              </Link>{" "}
+              lesen.
+            </AlertDescription>
+          </Alert>
+        </div>
+      </section>
+
+      {/* Food & Wine */}
+      <section className="bg-secondary/40">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
+          <h2 className="font-display text-3xl font-bold md:text-4xl">Regionales Essen & Wein</h2>
+          <p className="mt-2 text-muted-foreground">Geschmack der Region – zwischen Marae, Hafen und Weinberg.</p>
+
+          <div className="mt-10 space-y-12">
+            {r.foodAndWine.map((f, i) => {
+              const reverse = i % 2 === 1;
+              return (
+                <div
+                  key={f.id}
+                  className={cn(
+                    "grid items-center gap-8 md:grid-cols-2",
+                    reverse && "md:[&>div:first-child]:order-2",
+                  )}
+                >
+                  <div className="overflow-hidden rounded-xl shadow-md">
+                    <img
+                      src={imageFor(f.imageQuery, 1000, 750)}
+                      alt={f.title}
+                      loading="lazy"
+                      className="aspect-[4/3] h-full w-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-widest text-accent">{f.location}</span>
+                    <h3 className="mt-2 font-display text-2xl font-bold text-foreground md:text-3xl">{f.title}</h3>
+                    <p className="mt-3 leading-relaxed text-foreground/85">{f.description}</p>
+                    {f.insiderTip && (
+                      <div className="mt-4 flex gap-3 rounded-lg border-l-4 border-accent bg-background p-4">
+                        <Lightbulb className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                        <p className="text-sm text-foreground">
+                          <strong className="font-semibold text-accent">Insider-Tipp:</strong> {f.insiderTip}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Regional Safety */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
+          <h2 className="font-display text-3xl font-bold md:text-4xl">Sicherheit in dieser Region</h2>
+          <p className="mt-2 text-muted-foreground">
+            Region-spezifische Hinweise – ergänzend zu den allgemeinen{" "}
+            <Link to="/faq" className="text-primary underline hover:text-accent">
+              Sicherheitsinformationen
+            </Link>
+            .
+          </p>
+
+          <ul className="mt-8 space-y-4">
+            {r.regionalSafety.map((s) => {
+              const Icon = safetyIcon[s.category];
+              return (
+                <li
+                  key={s.id}
+                  className="rounded-r-lg border-l-4 border-primary bg-secondary/60 p-5"
+                >
+                  <div className="flex items-start gap-4">
+                    <Icon className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
+                    <div className="flex-1">
+                      <h3 className="font-display text-lg font-bold text-foreground">{s.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/85">{s.description}</p>
+                      <a
+                        href={s.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-3 inline-flex items-center gap-1 text-xs text-primary hover:text-accent"
+                      >
+                        Quelle: {s.source} <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
     </article>
   );
 }

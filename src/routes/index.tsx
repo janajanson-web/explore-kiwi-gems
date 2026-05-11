@@ -70,15 +70,15 @@ function HeroSlider() {
           ))}
         </div>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
-      <div className="absolute inset-x-0 bottom-5 z-10 flex justify-center gap-2">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-5 z-10 flex justify-center gap-2 [filter:drop-shadow(0_1px_2px_rgba(0,0,0,0.5))]">
         {slides.map((_, i) => (
           <button
             key={i}
             type="button"
             aria-label={`Slide ${i + 1}`}
             onClick={() => emblaApi?.scrollTo(i)}
-            className={`h-2 rounded-full transition-all ${selected === i ? "w-6 bg-primary-foreground" : "w-2 bg-primary-foreground/50 hover:bg-primary-foreground/80"}`}
+            className={`h-2 rounded-full transition-all ${selected === i ? "w-6 bg-primary-foreground" : "w-2 bg-primary-foreground/60 hover:bg-primary-foreground/90"}`}
           />
         ))}
       </div>

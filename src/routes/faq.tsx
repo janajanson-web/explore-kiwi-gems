@@ -97,7 +97,7 @@ function FAQ() {
         Sicherheitshinweise und häufige Fragen zur Reise – kurz, mit Quellen. Bitte beachte: Einreise-, Gesundheits- und Sicherheitsregeln können sich ändern – prüfe vor Reiseantritt die offiziellen Seiten.
       </p>
 
-      <section className="mt-12">
+      <section id="sicherheit" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">Sicher unterwegs in Neuseeland</h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
           Neuseeland ist ein sicheres Reiseland – mit ein paar Besonderheiten, die du kennen solltest.

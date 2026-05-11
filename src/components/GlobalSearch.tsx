@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Command as CommandPrimitive } from "cmdk";
-import { Search, Compass, Mountain, Utensils, HelpCircle, X } from "lucide-react";
+import { Search, Compass, Mountain, Utensils, HelpCircle, ShieldCheck, FileText, X } from "lucide-react";
 import {
   Command,
   CommandDialog,

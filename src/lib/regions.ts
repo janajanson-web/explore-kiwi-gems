@@ -17,6 +17,7 @@ import foodAucklandFishMarket from "@/assets/food-auckland-fish-market.jpg";
 import foodCoromandelOysters from "@/assets/food-coromandel-oysters.jpg";
 import foodHangiRotorua from "@/assets/food-hangi-rotorua.jpg";
 import excCathedralCove from "@/assets/excursion-cathedral-cove.jpg";
+import excWaitomo from "@/assets/excursion-waitomo.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -125,6 +126,7 @@ export const regions: Region[] = [
         source: "Tourism New Zealand",
         sourceUrl: "https://www.newzealand.com/de/feature/waitomo-glowworm-caves/",
         imageQuery: "waitomo-glowworm-caves",
+        image: excWaitomo,
       },
       {
         id: "cathedral-cove",

@@ -252,6 +252,7 @@ export function GlobalSearchInline({ className }: { className?: string }) {
     <div ref={containerRef} className={cn("relative w-full max-w-2xl", className)}>
       <Command
         shouldFilter
+        filter={substringFilter}
         className="overflow-visible bg-transparent"
         loop
       >

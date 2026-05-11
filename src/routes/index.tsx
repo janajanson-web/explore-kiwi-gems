@@ -109,11 +109,11 @@ function Index() {
       <section className="relative isolate overflow-hidden">
         <HeroSlider />
         <div className="pointer-events-none relative mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center px-4 py-24 md:px-8">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/80">Naturally Epic</p>
-          <h1 className="max-w-3xl font-display text-5xl font-bold leading-tight text-primary-foreground md:text-7xl">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)]">Naturally Epic</p>
+          <h1 className="max-w-3xl font-display text-5xl font-bold leading-tight text-primary-foreground md:text-7xl [text-shadow:0_2px_14px_rgba(0,0,0,0.55)]">
             100% Neuseeland
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-primary-foreground/90 md:text-xl">
+          <p className="mt-6 max-w-xl text-lg text-primary-foreground/95 md:text-xl [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
             Entdecke atemberaubende Landschaften, echte Abenteuer und ehrliche Insider-Tipps aus dem Land der Kiwis.
           </p>
           <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">

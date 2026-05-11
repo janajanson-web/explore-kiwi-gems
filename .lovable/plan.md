@@ -1,35 +1,30 @@
-## Plan: Explore-New-Zealand – Erweiterungen
+## Ziel
+Hero-Bilder kommen wieder farbintensiv zur Geltung – ohne den großflächigen, halbtransparenten Forest-Green-Schleier. Die Headline und der Sub-Text bleiben auf jedem Bild gut lesbar.
 
-### 1. Navigation & Footer
-- **SiteHeader.tsx**: `nav`-Array reduzieren auf Start, Regionen, FAQ (Sicherheit + Impressum entfernen, sowohl Desktop als auch mobile Bottom-Nav).
-- **SiteFooter.tsx**: Spalte „Entdecken" in „Reise & Information" umbenennen und um `Sicherheit` ergänzen. „Rechtliches"-Spalte (Impressum + Datenschutz) bleibt.
+## Lösung: Leichter Bottom-Verlauf + Textschatten
 
-### 2. Hero-Slider (`src/routes/index.tsx`)
-- `bun add embla-carousel-autoplay` (embla-carousel-react ist bereits über shadcn carousel vorhanden).
-- 5 neue Hero-Bilder generieren (über `imagegen--generate_image`, fast quality, 1920×1080, JPG, je <200 kB) für: Milford Sound/Mitre Peak, Aoraki/Mt Cook, Lake Tekapo + Lupinen, Tongariro Emerald Lakes, Cathedral Cove. Hinweis: Wir verwenden generierte Bilder statt direkter Unsplash-Hotlinks (Unsplash erlaubt kein Hotlinking in Production-Builds, und das Projekt liefert Bilder bisher lokal aus). Im Impressum die Quellenangabe entsprechend aktualisieren.
-- Carousel-Implementierung: shadcn `Carousel` + `embla-carousel-autoplay` (5 s, stop on hover, resume on leave). Slides absolut positioniert mit `opacity`-Fade (Tailwind transition, ~1 s). Hero-Text-Layer absolut darüber, bleibt fix. Indikator-Punkte unten zentriert.
+### 1. Vollflächigen Schleier ersetzen
+In `src/routes/index.tsx` (HeroSlider) wird der bisherige Overlay-Layer
+`bg-gradient-to-r from-primary/80 via-primary/50 to-transparent`
+durch einen deutlich dezenteren Verlauf ausgetauscht, der nur das untere Drittel sanft abdunkelt:
+- Verlauf von unten (kräftiger, ca. 60–70 % schwarz/forest) nach oben transparent
+- Höhe etwa 55–65 % der Hero-Sektion (`from-black/65 via-black/25 to-transparent`)
+- Obere Bildhälfte bleibt komplett frei – Farben, Himmel und Details kommen voll zur Geltung
 
-### 3. Quick-Access-Leiste (`src/routes/index.tsx`)
-- 4 vollständig klickbare `<Link>`-Karten mit Lucide-Icons: Compass→`/regionen`, Mountain→`/regionen/suedinsel`, ShieldCheck→`/sicherheit`, HelpCircle→`/faq`. Hover-State mit leichter Hintergrundänderung.
+### 2. Typo-Effekt für zusätzliche Lesbarkeit
+Auf den Hero-Texten (H1 und Sub-Text in `index.tsx`) wird ein dezenter, weicher Schatten ergänzt – kein harter Glow, sondern eine feine Tiefe, die den Text auch über hellen Bildbereichen klar absetzt:
+- Headline: kräftigerer Schatten (z. B. `drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]`)
+- Sub-Text & Buttons-Bereich: leichterer Schatten (`drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]`)
 
-### 4. Sicherheits-Callout (`src/routes/regionen.$slug.tsx`)
-- Unter der Highlights-Liste eine `Alert`-Box (shadcn) mit `AlertTriangle`-Icon. Background sand-beige (`bg-secondary`), Text/Icon in Forest Green, interner Link „Sicherheitsinformationen" → `/sicherheit`.
+### 3. Slider-Indikatoren absichern
+Die Pagination-Dots am unteren Rand bekommen einen minimalen Schatten, damit sie auf hellen Bildern (z. B. Cable Bay) sichtbar bleiben.
 
-### 5. GeoNet-Link (`src/routes/sicherheit.tsx`)
-- Im Abschnitt Erdbeben „GeoNet" als externen Link mit `target="_blank" rel="noopener noreferrer"` auf https://www.geonet.org.nz.
+### 4. Was nicht angefasst wird
+- Bilder, Reihenfolge und Auto-Rotation (9 s) bleiben unverändert
+- Designsystem-Farben, Typografie, restliche Seiten unverändert
+- Nur die Hero-Sektion auf der Startseite wird angepasst
 
-### 6. FAQ-Suchleiste (`src/routes/faq.tsx`)
-- `useState` für Query, shadcn `Input` + Lucide `Search`-Icon (icon links via absolute positioning). Filter case-insensitive über `q + a`. Empty-State-Hinweistext.
-
-### 7. Interaktive NZ-Karte (`src/routes/regionen.index.tsx`)
-- Inline-SVG mit drei `<path>`-Elementen (vereinfachte Outlines Nord-, Südinsel, Stewart Island). Füllung `--primary` (Forest Green), Hover → `--ocean` (neuer Token oder `#3D6F8E`). Jede Insel `<Link>`-wrapped (über klickbaren `<g>` mit `onClick` + `useNavigate`).
-- Flughäfen: 6 Marker (Lucide `Plane`-Icon als foreignObject oder kleine SVG-Kreise mit Tooltip via shadcn `Tooltip`). Positionen approximiert auf Karte (AKL, WLG, CHC, ZQN, DUD, IVC).
-- Responsive: SVG mit `viewBox`, `max-w-md mx-auto` auf Mobile, `max-w-2xl` auf Desktop.
-
-### 8. Impressum (`src/routes/impressum.tsx`)
-- Bildnachweise an die neuen 5 Hero-Bilder + 3 Regionsbilder anpassen (Hinweis: KI-generiert, da Hotlinking ungeeignet) – falls User stattdessen echte Unsplash-Hotlinks bevorzugt, bitte rückmelden.
-
-### Technische Hinweise
-- Tailwind v4: ggf. neuer Token `--ocean` in `src/styles.css` ergänzen, falls noch nicht vorhanden.
-- Alle Änderungen responsiv (`sm:`, `md:`, `lg:`-Breakpoints), bestehende Routen/Daten unverändert.
-- Nach Implementierung: Build/Console-Check.
+## Ergebnis
+- Bilder wirken kräftiger und lebendiger, weil ⅔ der Fläche ohne Farbfilter bleiben
+- Headline und Sub-Text bleiben klar lesbar dank Bottom-Verlauf + Textschatten
+- Responsive auf Mobile, Tablet, Desktop (Verlauf skaliert mit der Höhe der Hero-Sektion)

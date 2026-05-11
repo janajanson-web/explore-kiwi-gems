@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink } from "lucide-react";
+import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink, Clock, Wallet } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -148,12 +148,17 @@ function RegionDetail() {
                     <Badge className={cn("shrink-0", effortClass[e.effort])}>{effortLabel[e.effort]}</Badge>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {e.tags.map((t) => (
-                      <span key={t} className="rounded-md bg-secondary px-2 py-0.5 text-xs text-foreground">
-                        {t}
-                      </span>
-                    ))}
+                  <div className="mt-4 space-y-2 border-t border-[color:var(--sand,theme(colors.secondary.DEFAULT))] pt-3">
+                    <div className="flex items-baseline gap-2 text-sm">
+                      <Clock className="h-4 w-4 shrink-0 translate-y-0.5 text-primary" aria-hidden />
+                      <span className="font-medium text-foreground">Dauer:</span>
+                      <span className="text-muted-foreground">{e.duration}</span>
+                    </div>
+                    <div className="flex items-baseline gap-2 text-sm">
+                      <Wallet className="h-4 w-4 shrink-0 translate-y-0.5 text-primary" aria-hidden />
+                      <span className="font-medium text-foreground">Kosten p. P.:</span>
+                      <span className="text-muted-foreground">{e.priceRange}</span>
+                    </div>
                   </div>
                   <div className="mt-4 border-t border-border pt-3 text-xs text-muted-foreground">
                     Quelle:{" "}

@@ -13,6 +13,9 @@ import foodCanterburyLamb from "@/assets/food-canterbury-lamb.jpg";
 import excTongariro from "@/assets/excursion-tongariro.jpg";
 import excCapeReinga from "@/assets/excursion-cape-reinga.jpg";
 import foodHawkesBay from "@/assets/food-hawkes-bay.jpg";
+import foodAucklandFishMarket from "@/assets/food-auckland-fish-market.jpg";
+import foodCoromandelOysters from "@/assets/food-coromandel-oysters.jpg";
+import foodHangiRotorua from "@/assets/food-hangi-rotorua.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -143,6 +146,7 @@ export const regions: Region[] = [
           "Im traditionellen Maori-Erdofen werden Lamm, Süßkartoffel und Hühnchen stundenlang über heißen Steinen gegart – serviert mit Haka, Gesang und Geschichten beim Marae-Besuch.",
         insiderTip: "Tamaki Maori Village kombiniert Hangi mit einem authentischen Kulturabend – früh buchen.",
         imageQuery: "maori-hangi-traditional-food",
+        image: foodHangiRotorua,
       },
       {
         id: "auckland-fish-market",
@@ -151,6 +155,7 @@ export const regions: Region[] = [
         description:
           "Direkt am Hafen wird der Fang des Tages versteigert. Daneben Foodcourts mit Snapper, Green-Lipped-Mussels und perfekt frittierten Fish & Chips – am besten draußen am Wasser essen.",
         imageQuery: "auckland-fish-market-seafood",
+        image: foodAucklandFishMarket,
       },
       {
         id: "hawkes-bay",
@@ -169,6 +174,7 @@ export const regions: Region[] = [
         description:
           "Direkt vom Erzeuger an der Mündung: pralle, salzig-süße Austern – pur mit Zitrone oder kurz auf dem Grill. Die beste Adresse: The Coromandel Oyster Company an der Hauptstraße.",
         imageQuery: "fresh-oysters-new-zealand",
+        image: foodCoromandelOysters,
       },
     ],
     regionalSafety: [

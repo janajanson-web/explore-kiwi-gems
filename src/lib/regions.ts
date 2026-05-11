@@ -1,6 +1,13 @@
 import north from "@/assets/region-north.jpg";
 import south from "@/assets/region-south.jpg";
 import stewart from "@/assets/region-stewart.jpg";
+import excMilford from "@/assets/excursion-milford-sound.jpg";
+import excHooker from "@/assets/excursion-hooker-valley.jpg";
+import excFranzJosef from "@/assets/excursion-franz-josef.jpg";
+import excRouteburn from "@/assets/excursion-routeburn.jpg";
+import excRoysPeak from "@/assets/excursion-roys-peak.jpg";
+import foodMarlborough from "@/assets/food-marlborough-sauvignon.jpg";
+import foodBluffOysters from "@/assets/food-bluff-oysters.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -13,6 +20,7 @@ export type Excursion = {
   source: string;
   sourceUrl?: string;
   imageQuery: string;
+  image?: string;
 };
 
 export type FoodItem = {
@@ -22,6 +30,7 @@ export type FoodItem = {
   description: string;
   insiderTip?: string;
   imageQuery: string;
+  image?: string;
 };
 
 export type SafetyItem = {
@@ -218,6 +227,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/milford-sound-piopiotahi/",
         imageQuery: "milford-sound-fjord-waterfall",
+        image: excMilford,
       },
       {
         id: "hooker-valley",
@@ -229,6 +239,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/hooker-valley-track/",
         imageQuery: "hooker-valley-track-mount-cook",
+        image: excHooker,
       },
       {
         id: "franz-josef",
@@ -240,6 +251,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/westland-tai-poutini-national-park/",
         imageQuery: "franz-josef-glacier-new-zealand",
+        image: excFranzJosef,
       },
       {
         id: "roys-peak",
@@ -251,6 +263,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/roys-peak-track/",
         imageQuery: "roys-peak-wanaka-summit",
+        image: excRoysPeak,
       },
       {
         id: "routeburn",
@@ -262,6 +275,7 @@ export const regions: Region[] = [
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/routeburn-track/",
         imageQuery: "routeburn-track-new-zealand",
+        image: excRouteburn,
       },
     ],
     foodAndWine: [
@@ -273,6 +287,7 @@ export const regions: Region[] = [
           "Das weltweit bekannteste Anbaugebiet für Sauvignon Blanc – knackig, grasig, mit Passionsfrucht-Note. Über 30 Weingüter rund um Blenheim, viele mit eigenem Restaurant.",
         insiderTip: "Cloudy Bay startete den Hype – aber kleine Familienweingüter wie Hans Herzog sind oft eindrucksvoller.",
         imageQuery: "marlborough-vineyard-sauvignon-blanc",
+        image: foodMarlborough,
       },
       {
         id: "central-otago",
@@ -289,6 +304,7 @@ export const regions: Region[] = [
         description:
           "Die saisonale Spezialität aus dem äußersten Süden – kräftig, salzig, fleischig. Wer im Saisonfenster reist, sollte den Umweg nach Bluff oder Invercargill nicht missen.",
         imageQuery: "bluff-oysters-new-zealand",
+        image: foodBluffOysters,
       },
       {
         id: "canterbury-lamb",

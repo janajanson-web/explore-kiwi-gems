@@ -1,16 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
+import { GlobalSearchTrigger } from "@/components/GlobalSearch";
 
 const nav = [
   { to: "/", label: "Start" },
   { to: "/regionen", label: "Regionen" },
-  { to: "/faq", label: "FAQ" },
+  { to: "/faq", label: "FAQ & Nützliches" },
 ] as const;
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full bg-primary text-primary-foreground shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Explore New Zealand Logo" className="h-10 w-10 rounded-full bg-white/10 object-contain" width={40} height={40} />
           <div className="leading-tight">
@@ -18,19 +19,22 @@ export function SiteHeader() {
             <div className="text-[10px] uppercase tracking-widest opacity-70">Naturally Epic</div>
           </div>
         </Link>
-        <nav className="hidden items-center gap-7 md:flex">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              className="text-sm font-medium opacity-90 transition hover:opacity-100"
-              activeProps={{ className: "text-sm font-semibold opacity-100 border-b-2 border-accent pb-0.5" }}
-              activeOptions={{ exact: n.to === "/" }}
-            >
-              {n.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-2 md:gap-5">
+          <nav className="hidden items-center gap-7 md:flex">
+            {nav.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                className="text-sm font-medium opacity-90 transition hover:opacity-100"
+                activeProps={{ className: "text-sm font-semibold opacity-100 border-b-2 border-accent pb-0.5" }}
+                activeOptions={{ exact: n.to === "/" }}
+              >
+                {n.label}
+              </Link>
+            ))}
+          </nav>
+          <GlobalSearchTrigger />
+        </div>
       </div>
       <nav className="flex gap-4 overflow-x-auto border-t border-white/10 px-4 py-2 text-sm md:hidden">
         {nav.map((n) => (

@@ -32,6 +32,8 @@ export type Excursion = {
   title: string;
   description: string;
   effort: Effort;
+  duration: string;
+  priceRange: string;
   tags: string[];
   source: string;
   sourceUrl?: string;

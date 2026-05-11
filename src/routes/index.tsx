@@ -11,6 +11,7 @@ import waiheke from "@/assets/hero-waiheke.jpg";
 import splitApple from "@/assets/hero-split-apple.jpg";
 import kiwi from "@/assets/hero-kiwi.jpg";
 import hobbiton from "@/assets/hero-hobbiton.jpg";
+import { GlobalSearchInline } from "@/components/GlobalSearch";
 
 const slides = [
   { src: cableBay, alt: "Cable Bay bei Nelson mit türkisem Wasser und Schafen" },
@@ -118,7 +119,10 @@ function Index() {
           <p className="mt-6 max-w-xl text-lg text-primary-foreground/95 md:text-xl [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
             Entdecke atemberaubende Landschaften, echte Abenteuer und ehrliche Insider-Tipps aus dem Land der Kiwis.
           </p>
-          <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">
+          <div className="pointer-events-auto mt-8">
+            <GlobalSearchInline />
+          </div>
+          <div className="pointer-events-auto mt-6 flex flex-wrap gap-3">
             <Link to="/regionen" className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90">
               Regionen entdecken →
             </Link>

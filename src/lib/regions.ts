@@ -165,7 +165,7 @@ export const regions: Region[] = [
           "Das Originalfilmset aus „Der Herr der Ringe\" und „Der Hobbit\" — auf einer privaten Schaffarm in der Waikato-Region. Geführte 2,5-Stunden-Tour durch das 12-Acre-Set: 44 farbige Hobbit-Türen, Bag End, Party Tree, das Innere von Bagshot Row und ein komplimentäres Getränk im Green Dragon Inn. Das Set ist nur per geführter Tour zugänglich. Tipp: ca. 45 Min Fahrt von Rotorua — perfekt kombinierbar mit einem Te-Pā-Tū-Abend.",
         effort: "easy",
         duration: "ca. 2,5 Stunden (inkl. Bustransfer)",
-        priceRange: "Erw. ca. € 65 · Jugendl. (11–17) ca. € 33 · Family Pass ca. € 167 · Kinder 0–10 frei (NZD 130 / 65 / 332)",
+        priceRange: "Erw. ca. € 65 · Jugendl. (11–17) ca. € 33 · Family Pass ca. € 167 · Kinder 0–10 frei",
         tags: ["Filmset", "Familienfreundlich", "Geführte Tour"],
         source: "Hobbiton Movie Set Tours",
         sourceUrl: "https://www.hobbitontours.com/",

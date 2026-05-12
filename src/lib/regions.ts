@@ -234,7 +234,7 @@ export const regions: Region[] = [
     tagline: "Fjorde, Gletscher und die Southern Alps",
     image: south,
     intro:
-      "Die Südinsel (Te Waipounamu) ist das Postkartenmotiv schlechthin: Milford Sound, Mount Cook, die Weinregion Marlborough und Adrenalin-Hotspot Queenstown liegen alle hier.",
+      'Die Südinsel (Te Waipounamu) ist das Postkartenmotiv schlechthin: Milford Sound, Mount Cook, die Weinregion Marlborough und Adrenalin-Hotspot Queenstown — die „Adventure Capital of the World" mit Bungee, Jet Boats und Skydiving — liegen alle hier.',
     bestTime: "Dezember bis März (Sommer) / Juli–September (Ski)",
     highlights: [
       "Milford & Doubtful Sound",

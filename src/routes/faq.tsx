@@ -27,7 +27,7 @@ const safetyItems = [
   { icon: Car, title: "Linksverkehr", text: "Im Kreisverkehr hat von rechts Vorfahrt. Strecken werden meist unterschätzt – Pufferzeiten einplanen." },
   { icon: Mountain, title: "Erdbeben & Vulkane", text: <>Bei Beben: Drop, Cover, Hold. Aktuelle Lage auf <a href="https://www.geonet.org.nz" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-accent">GeoNet</a> prüfen, besonders rund um Taupo und Ruapehu.</> },
   { icon: Waves, title: "Tsunami-Warnungen", text: "Bei langem starken Beben an der Küste sofort hochgelegenes Gelände aufsuchen – ohne auf offizielle Warnung zu warten." },
-  { icon: Sun, title: "UV-Strahlung", text: "Die UV-Strahlung ist 40 % höher als in Mitteleuropa. Sonnencreme LSF 50+, Hut und langärmlige Kleidung." },
+  { icon: Sun, title: "UV-Strahlung", text: <>Die UV-Strahlung ist 40 % höher als in Mitteleuropa. Sonnencreme LSF 50+, Hut und langärmlige Kleidung. <span className="mt-2 block text-xs">Quelle: <a href="https://niwa.co.nz/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-accent">NIWA / Earth Sciences New Zealand</a></span></> },
   { icon: AlertTriangle, title: "Wetter in den Bergen", text: "Schneller Wetterumschwung möglich. DOC-Hütten registrieren, Wetterbericht (MetService) und Tracks-Status prüfen." },
 ];
 

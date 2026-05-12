@@ -321,6 +321,7 @@ export const regions: Region[] = [
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/routeburn-track/",
         imageQuery: "routeburn-track-new-zealand",
         image: excRouteburn,
+      },
       {
         id: "kawarau-bridge-bungy",
         title: "Kawarau Bridge Bungy (Queenstown)",

@@ -256,6 +256,15 @@ export const regions: Region[] = [
         source: "SafeTravel NZ",
         sourceUrl: "https://www.safetravel.govt.nz/staying-safe-new-zealand",
       },
+      {
+        id: "marae-etiquette",
+        category: "general",
+        title: "Kulturelle Etikette auf einem Marae",
+        description:
+          "Beim Besuch eines Marae oder bei einer Pōwhiri-Zeremonie bitte den Anweisungen der Gastgeber folgen — Schuhe vor dem Wharenui ausziehen, nicht über Speisen hinwegsteigen und keine Hüte im Versammlungshaus tragen.",
+        source: "Tourism New Zealand",
+        sourceUrl: "https://www.newzealand.com/de/feature/marae-etiquette/",
+      },
     ],
   },
   {

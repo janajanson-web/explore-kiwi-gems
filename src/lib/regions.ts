@@ -458,6 +458,7 @@ export const regions: Region[] = [
       "Ulva Island Sanctuary",
       "Kiwi-Spotting bei Nacht",
       "Aurora Australis (Polarlicht)",
+      "Dark Sky Sanctuary (5. weltweit, seit 2019)",
     ],
     facts: [
       { label: "Bewohner", value: "ca. 400" },

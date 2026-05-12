@@ -48,7 +48,7 @@ export const faqs: FaqEntry[] = [
     a: "In Neuseeland herrscht Linksverkehr. An Kreisverkehren hat das von rechts kommende Fahrzeug Vorfahrt. Viele Straßen sind schmal und kurvig – realistische Fahrzeiten einplanen.",
     sources: [
       { label: "NZ Transport Agency", url: "https://www.nzta.govt.nz/safety/driving-safely/visiting-drivers/" },
-      { label: "Driving in New Zealand – German", url: "https://www.nzta.govt.nz/assets/resources/driving-in-nz/docs/driving-in-nz-german.pdf" },
+      { label: "Driving in New Zealand – Booklet (DE u. a.)", url: "https://www.nzta.govt.nz/resources/driving-in-new-zealand-booklet" },
     ],
   },
   {

@@ -20,6 +20,7 @@ import excCathedralCove from "@/assets/excursion-cathedral-cove.jpg";
 import excWaitomo from "@/assets/excursion-waitomo.jpg";
 import excKiwiSpotting from "@/assets/excursion-kiwi-spotting.jpg";
 import excMasonBay from "@/assets/excursion-mason-bay.jpg";
+import excAuroraAustralis from "@/assets/excursion-aurora-australis.jpg";
 import foodMuttonbird from "@/assets/food-muttonbird.jpg";
 import foodSouthSeaHotel from "@/assets/food-south-sea-hotel.jpg";
 import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";

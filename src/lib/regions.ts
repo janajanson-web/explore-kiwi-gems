@@ -25,6 +25,7 @@ import foodSouthSeaHotel from "@/assets/food-south-sea-hotel.jpg";
 import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
 import excRakiuraTrack from "@/assets/excursion-rakiura-track.jpg";
 import excKawarauBungy from "@/assets/excursion-kawarau-bungy.jpg";
+import excHobbiton from "@/assets/excursion-hobbiton.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -156,6 +157,20 @@ export const regions: Region[] = [
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/coromandel/",
         imageQuery: "cathedral-cove-coromandel-new-zealand",
         image: excCathedralCove,
+      },
+      {
+        id: "hobbiton-movie-set",
+        title: "Hobbiton Movie Set (Matamata)",
+        description:
+          "Das Originalfilmset aus „Der Herr der Ringe\" und „Der Hobbit\" — auf einer privaten Schaffarm in der Waikato-Region. Geführte 2,5-Stunden-Tour durch das 12-Acre-Set: 44 farbige Hobbit-Türen, Bag End, Party Tree, das Innere von Bagshot Row und ein komplimentäres Getränk im Green Dragon Inn. Das Set ist nur per geführter Tour zugänglich. Tipp: ca. 45 Min Fahrt von Rotorua — perfekt kombinierbar mit einem Te-Pā-Tū-Abend.",
+        effort: "easy",
+        duration: "ca. 2,5 Stunden (inkl. Bustransfer)",
+        priceRange: "Erw. ca. € 65 · Jugendl. (11–17) ca. € 33 · Family Pass ca. € 167 · Kinder 0–10 frei (NZD 130 / 65 / 332)",
+        tags: ["Filmset", "Familienfreundlich", "Geführte Tour"],
+        source: "Hobbiton Movie Set Tours",
+        sourceUrl: "https://www.hobbitontours.com/",
+        imageQuery: "Hobbiton Movie Set Bag End hobbit hole New Zealand",
+        image: excHobbiton,
       },
     ],
     foodAndWine: [

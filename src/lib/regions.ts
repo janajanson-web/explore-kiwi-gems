@@ -149,7 +149,7 @@ export const regions: Region[] = [
         id: "cathedral-cove",
         title: "Cathedral Cove (Coromandel)",
         description:
-          "Küstenwanderung zu der berühmten Felsformation mit dem natürlichen Torbogen – türkises Wasser und weißer Sand inklusive.",
+          "Ca. 1,5-stündige Küstenwanderung zum berühmten Felsbogen Te Hoho im Te Whanganui-A-Hei Marine Reserve: türkisblaues Wasser, weißer Sand und Pōhutukawa-Bäume rahmen die kathedralartige Formation. Filmkulisse u. a. für „Die Chroniken von Narnia: Prinz Kaspian“. Nach Cyclone-Schäden 2023 wieder zugänglich — Anreise per Wanderung, Park & Ride Shuttle ab Hahei oder Wassertaxi.",
         effort: "moderate",
         duration: "ca. 1,5–2 Stunden hin",
         priceRange: "Walk kostenlos · Shuttle ca. € 4 · Water Taxi ca. € 20 einfach",

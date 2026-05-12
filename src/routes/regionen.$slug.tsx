@@ -125,6 +125,9 @@ function RegionDetail() {
         </aside>
       </div>
 
+      {/* Stewart Island: Dark Sky Sanctuary */}
+      {r.slug === "stewart-island" && <DarkSkySection />}
+
       {/* Excursions */}
       <section id="aktivitaeten" className="scroll-mt-24 bg-background">
         <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
@@ -196,9 +199,6 @@ function RegionDetail() {
           </div>
         </div>
       </section>
-
-      {/* Stewart Island: Dark Sky Sanctuary */}
-      {r.slug === "stewart-island" && <DarkSkySection />}
 
       {/* Kulinarisches */}
       <section id="kulinarisches" className="scroll-mt-24 bg-secondary/40">

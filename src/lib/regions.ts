@@ -20,6 +20,7 @@ import excCathedralCove from "@/assets/excursion-cathedral-cove.jpg";
 import excWaitomo from "@/assets/excursion-waitomo.jpg";
 import excKiwiSpotting from "@/assets/excursion-kiwi-spotting.jpg";
 import excMasonBay from "@/assets/excursion-mason-bay.jpg";
+import excAuroraAustralis from "@/assets/excursion-aurora-australis.jpg";
 import foodMuttonbird from "@/assets/food-muttonbird.jpg";
 import foodSouthSeaHotel from "@/assets/food-south-sea-hotel.jpg";
 import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
@@ -525,6 +526,21 @@ export const regions: Region[] = [
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/stewart-island-rakiura/places/mason-bay/",
         imageQuery: "mason-bay-stewart-island-beach",
         image: excMasonBay,
+      },
+      {
+        id: "viva-expeditions-dark-sky",
+        title: "Viva Expeditions — Stewart Island Dark Sky Delights",
+        description:
+          "6-tägige Aurora-Australis-Kleingruppenreise ab/bis Invercargill: Aurora-Abend mit lokalem Astronomen, Ulva Island, Paterson Inlet Cruise, Kiwi-Spotting und 5 Übernachtungen. Termine zwischen April und September um Neumond.",
+        effort: "easy",
+        duration: "6 Tage / 5 Nächte",
+        priceRange: "ab € 1.635 p. P. · EZ-Zuschlag ca. € 448",
+        tags: ["Aurora", "Dark Sky", "Kleingruppe"],
+        source: "Viva Expeditions",
+        sourceUrl:
+          "https://vivaexpeditions.com/tours/new-zealand/stewart-island/stewart-island-dark-sky-delights-small-group-tour",
+        imageQuery: "aurora-australis-stewart-island",
+        image: excAuroraAustralis,
       },
     ],
     foodAndWine: [

@@ -456,11 +456,10 @@ export const regions: Region[] = [
       "Rakiura, wie die Maori die Insel nennen, ist Neuseelands drittgrößte Insel. 85 % stehen unter Naturschutz – ideal, um wilde Kiwis zu sehen und Polarlichter zu erleben.",
     bestTime: "Oktober bis April",
     highlights: [
-      "Rakiura Great Walk (3 Tage)",
+      "Rakiura Great Walk",
       "Ulva Island Sanctuary",
       "Kiwi-Spotting bei Nacht",
       "Aurora Australis (Polarlicht)",
-      "Dark Sky Sanctuary (5. weltweit, seit 2019)",
     ],
     facts: [
       { label: "Bewohner", value: "ca. 400" },

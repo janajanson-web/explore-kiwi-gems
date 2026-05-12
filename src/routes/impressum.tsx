@@ -32,6 +32,9 @@ function Imprint() {
         <h2 className="mt-8 font-display text-xl font-bold">Urheberrecht</h2>
         <p>Sämtliche Inhalte (Texte, Bilder, Grafiken) unterliegen dem Urheberrecht. Eine Verwendung außerhalb der gesetzlich zulässigen Grenzen bedarf der schriftlichen Zustimmung.</p>
 
+        <h2 className="mt-8 font-display text-xl font-bold">Hinweis zu Preisangaben</h2>
+        <p>Sämtliche auf dieser Website genannten Preise (z. B. für Ausflüge, Touren, Eintritte, Verpflegung und Unterkünfte) sind <strong>grobe Schätzungen</strong> und dienen ausschließlich der ersten Orientierung. Tatsächliche Kosten können je nach Anbieter, Saison, Verfügbarkeit, Wechselkurs und individuellen Leistungen abweichen. Verbindliche Preise erhältst du stets direkt beim jeweiligen Anbieter. Eine Gewähr für die Richtigkeit oder Aktualität der angegebenen Preise wird nicht übernommen.</p>
+
         <h2 className="mt-8 font-display text-xl font-bold">Bildnachweise</h2>
         <p>
           Die auf dieser Website verwendeten Fotografien stammen von{" "}

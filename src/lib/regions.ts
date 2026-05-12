@@ -26,6 +26,7 @@ import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
 import excRakiuraTrack from "@/assets/excursion-rakiura-track.jpg";
 import excKawarauBungy from "@/assets/excursion-kawarau-bungy.jpg";
 import excHobbiton from "@/assets/excursion-hobbiton.jpg";
+import excTePaTu from "@/assets/excursion-te-pa-tu.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -172,6 +173,20 @@ export const regions: Region[] = [
         imageQuery: "Hobbiton Movie Set Bag End hobbit hole New Zealand",
         image: excHobbiton,
       },
+      {
+        id: "te-pa-tu-maori",
+        title: "Te Pā Tū — Maori-Kultur in Rotorua",
+        description:
+          "Die meistprämierte kulturelle Tourismusattraktion Neuseelands. Ein 3,5-stündiger Abend im Tawa-Wald-Pā mit Pōwhiri (Begrüßungszeremonie), Kapa-Haka-Performance, traditionellem Hāngī (im Erdofen gegart) und einem 3-Gänge-Fusion-Menü. Die Inhalte folgen dem Maramataka, dem Maori-Mondkalender — jede Saison eine andere Geschichte. Inklusive Bus-Transfer ab zentralem Rotorua. Authentisch, respektvoll, von einer Maori-Familie geführt. Hinweis: Ein Marae ist das traditionelle Versammlungshaus eines Maori-Iwi (Stamm) und das spirituelle Zentrum der Gemeinschaft — Te Pā Tū bietet eine kuratierte, Qualmark-zertifizierte Erfahrung.",
+        effort: "easy",
+        duration: "ca. 3,5 Stunden (abends, inkl. Transfer)",
+        priceRange: "Erw. ca. € 135 · Kinder 5–15 ca. € 58 · Kleinkinder 0–4 frei",
+        tags: ["Kultur", "Abendprogramm", "Familienfreundlich"],
+        source: "Te Pā Tū (ehemals Tamaki Maori Village)",
+        sourceUrl: "https://te-pa-tu.com/",
+        imageQuery: "Maori carved meeting house pou whenua Rotorua",
+        image: excTePaTu,
+      },
     ],
     foodAndWine: [
       {
@@ -240,6 +255,15 @@ export const regions: Region[] = [
           "Strände wie Piha und Muriwai haben starke Strömungen (Rip Currents). Nur zwischen den gelb-roten Flaggen der Surf Lifeguards baden.",
         source: "SafeTravel NZ",
         sourceUrl: "https://www.safetravel.govt.nz/staying-safe-new-zealand",
+      },
+      {
+        id: "marae-etiquette",
+        category: "general",
+        title: "Kulturelle Etikette auf einem Marae",
+        description:
+          "Beim Besuch eines Marae oder bei einer Pōwhiri-Zeremonie bitte den Anweisungen der Gastgeber folgen — Schuhe vor dem Wharenui ausziehen, nicht über Speisen hinwegsteigen und keine Hüte im Versammlungshaus tragen.",
+        source: "Tourism New Zealand",
+        sourceUrl: "https://www.newzealand.com/de/feature/marae-etiquette/",
       },
     ],
   },

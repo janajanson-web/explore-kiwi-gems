@@ -184,16 +184,16 @@ function RegionDetail() {
             ))}
           </div>
 
-          <Alert className="mt-8 border-primary/20 bg-secondary">
-            <ShieldAlert className="h-5 w-5 !text-primary" />
-            <AlertDescription className="text-foreground">
+          <div className="mt-8 flex items-center gap-3 rounded-lg border border-primary/20 bg-secondary px-4 py-3 text-sm text-foreground">
+            <ShieldAlert className="h-5 w-5 shrink-0 text-primary" />
+            <p>
               <strong className="font-semibold text-primary">Hinweis:</strong> Vor jeder Aktivität bitte unsere{" "}
               <Link to="/faq" className="font-semibold text-primary underline underline-offset-2 hover:text-accent">
                 Sicherheitsinformationen
               </Link>{" "}
               lesen.
-            </AlertDescription>
-          </Alert>
+            </p>
+          </div>
         </div>
       </section>
 

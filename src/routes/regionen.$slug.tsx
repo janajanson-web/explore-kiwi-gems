@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink, Clock, Wallet } from "lucide-react";
+import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink, Clock, Wallet, Telescope, Sparkles } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";

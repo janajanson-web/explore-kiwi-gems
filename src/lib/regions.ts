@@ -177,7 +177,7 @@ export const regions: Region[] = [
         id: "te-pa-tu-maori",
         title: "Te Pā Tū — Maori-Kultur in Rotorua",
         description:
-          "Die meistprämierte kulturelle Tourismusattraktion Neuseelands. Ein 3,5-stündiger Abend im Tawa-Wald-Pā mit Pōwhiri (Begrüßungszeremonie), Kapa-Haka-Performance, traditionellem Hāngī (im Erdofen gegart) und einem 3-Gänge-Fusion-Menü. Die Inhalte folgen dem Maramataka, dem Maori-Mondkalender — jede Saison eine andere Geschichte. Inklusive Bus-Transfer ab zentralem Rotorua. Authentisch, respektvoll, von einer Maori-Familie geführt. Hinweis: Ein Marae ist das traditionelle Versammlungshaus eines Maori-Iwi (Stamm) und das spirituelle Zentrum der Gemeinschaft — Te Pā Tū bietet eine kuratierte, Qualmark-zertifizierte Erfahrung.",
+          "3,5-stündiger Maori-Kulturabend im Tawa-Wald-Pā: Pōwhiri (Begrüßungszeremonie), Kapa-Haka-Performance und traditionelles Hāngī aus dem Erdofen mit 3-Gänge-Fusion-Menü. Die Inhalte folgen dem Maramataka, dem Maori-Mondkalender — jede Saison eine andere Geschichte. Qualmark-zertifiziert, von einer Maori-Familie geführt; Bus-Transfer ab Rotorua inklusive.",
         effort: "easy",
         duration: "ca. 3,5 Stunden (abends, inkl. Transfer)",
         priceRange: "Erw. ca. € 135 · Kinder 5–15 ca. € 58 · Kleinkinder 0–4 frei",

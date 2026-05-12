@@ -24,6 +24,7 @@ import foodMuttonbird from "@/assets/food-muttonbird.jpg";
 import foodSouthSeaHotel from "@/assets/food-south-sea-hotel.jpg";
 import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
 import excRakiuraTrack from "@/assets/excursion-rakiura-track.jpg";
+import excKawarauBungy from "@/assets/excursion-kawarau-bungy.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 

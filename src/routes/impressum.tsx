@@ -34,21 +34,31 @@ function Imprint() {
 
         <h2 className="mt-8 font-display text-xl font-bold">Bildnachweise</h2>
         <p>
-          Sämtliche auf dieser Website verwendeten Fotografien stammen von{" "}
+          Die auf dieser Website verwendeten Fotografien stammen von{" "}
           <a className="text-primary underline" href="https://unsplash.com/" target="_blank" rel="noreferrer">Unsplash</a>{" "}
-          und werden unter der{" "}
-          <a className="text-primary underline" href="https://unsplash.com/license" target="_blank" rel="noreferrer">Unsplash-Lizenz</a>{" "}
-          kostenfrei zur kommerziellen und nicht-kommerziellen Nutzung bereitgestellt. Wir danken den Fotografinnen und Fotografen der Unsplash-Community für die Bereitstellung ihrer Werke.
+          (Unsplash-Lizenz) sowie von{" "}
+          <a className="text-primary underline" href="https://www.pexels.com/" target="_blank" rel="noreferrer">Pexels</a>{" "}
+          (
+          <a className="text-primary underline" href="https://www.pexels.com/license/" target="_blank" rel="noreferrer">Pexels-Lizenz</a>
+          ) und werden kostenfrei zur kommerziellen und nicht-kommerziellen Nutzung bereitgestellt. Wir danken den Fotografinnen und Fotografen beider Communities für die Bereitstellung ihrer Werke.
         </p>
+        <h3 className="mt-6 font-display text-lg font-semibold">Quelle: Unsplash</h3>
         <ul>
-          <li>Hero-Slider „Milford Sound mit Mitre Peak“ – Quelle: unsplash.com</li>
-          <li>Hero-Slider „Aoraki / Mt Cook bei Sonnenaufgang“ – Quelle: unsplash.com</li>
-          <li>Hero-Slider „Lake Tekapo mit Church of the Good Shepherd und Lupinen“ – Quelle: unsplash.com</li>
-          <li>Hero-Slider „Tongariro Alpine Crossing mit Emerald Lakes“ – Quelle: unsplash.com</li>
-          <li>Hero-Slider „Cathedral Cove“ – Quelle: unsplash.com</li>
-          <li>Region Nordinsel – Quelle: unsplash.com</li>
-          <li>Region Südinsel – Quelle: unsplash.com</li>
-          <li>Region Stewart Island – Quelle: unsplash.com</li>
+          <li>Hero-Slider „Milford Sound mit Mitre Peak“</li>
+          <li>Hero-Slider „Aoraki / Mt Cook bei Sonnenaufgang“</li>
+          <li>Hero-Slider „Lake Tekapo mit Church of the Good Shepherd und Lupinen“</li>
+          <li>Hero-Slider „Tongariro Alpine Crossing mit Emerald Lakes“</li>
+          <li>Hero-Slider „Cathedral Cove“</li>
+          <li>Region Nordinsel</li>
+          <li>Region Südinsel</li>
+          <li>Region Stewart Island</li>
+        </ul>
+        <h3 className="mt-6 font-display text-lg font-semibold">Quelle: Pexels</h3>
+        <ul>
+          <li>Übersichtskarte Neuseeland (Illustration / Kartenmaterial)</li>
+          <li>Weitere Hero- und Stimmungsbilder: Auckland Skyline, Hobbiton, Haka-Aufführung, Kiwi-Vogel, Kiwi-Straßenschild, Cable Bay, Split Apple Rock, Waiheke Island</li>
+          <li>Ausflüge & Aktivitäten: Cape Reinga, Cathedral Cove, Franz Josef Glacier, Hooker Valley Track, Kiwi Spotting, Mason Bay, Milford Sound (Bootstour), Rakiura Track, Routeburn Track, Roys Peak, Tongariro Alpine Crossing, Ulva Island, Waitomo Caves</li>
+          <li>Kulinarisches aus den Regionen: Auckland Fish Market, Bluff Oysters, Canterbury Lamb, Central Otago Pinot Noir, Coromandel Oysters, Hāngī Rotorua, Hawke's Bay, Marlborough Sauvignon Blanc, Muttonbird (Tītī), South Sea Hotel (Stewart Island)</li>
         </ul>
         <p className="text-sm text-muted-foreground">Sollte trotz sorgfältiger Recherche eine Urheberrechtsverletzung vorliegen, bitten wir um eine kurze Nachricht – die betroffenen Inhalte werden umgehend entfernt.</p>
 

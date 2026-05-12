@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink, Clock, Wallet } from "lucide-react";
+import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink, Clock, Wallet, Telescope, Sparkles } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -197,6 +197,9 @@ function RegionDetail() {
         </div>
       </section>
 
+      {/* Stewart Island: Dark Sky Sanctuary */}
+      {r.slug === "stewart-island" && <DarkSkySection />}
+
       {/* Kulinarisches */}
       <section id="kulinarisches" className="scroll-mt-24 bg-secondary/40">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
@@ -290,5 +293,111 @@ function RegionDetail() {
         </div>
       </section>
     </article>
+  );
+}
+
+const auroraTours = [
+  {
+    id: "viva-expeditions-dark-sky",
+    operator: "Viva Expeditions — Stewart Island Dark Sky Delights",
+    duration: "6 Tage / 5 Nächte (ab/bis Invercargill)",
+    priceRange: "€ 1.635 p. P. (NZD 3.230, EZ-Zuschlag NZD 885 / ~€ 448)",
+    includes:
+      "Kleingruppe, Aurora-Abend mit lokalem Astronomen, Ulva Island, Paterson Inlet Cruise, Kiwi-Spotting, alle Nächte",
+    note: "Mindestalter 18, Termine zwischen April und September um Neumond geplant",
+    sourceUrl:
+      "https://vivaexpeditions.com/tours/new-zealand/stewart-island/stewart-island-dark-sky-delights-small-group-tour",
+  },
+  {
+    id: "ruggedy-range-dark-sky",
+    operator: "Ruggedy Range™ — Dark Sky & Aurora Tour",
+    duration: "Tages-/Einzeltour, flexibel buchbar",
+    priceRange: "auf Anfrage (kleine Gruppen, individuell)",
+    includes:
+      "Geführte Dark-Sky-Beobachtung mit lokalem Astronomen (Alistair), inkl. Teleskop und Storytelling, optional kombinierbar mit Kiwi-Spotting oder Ulva-Island-Tour",
+    note: "Buchung möglichst frühzeitig empfohlen — kleines Familienunternehmen seit über 22 Jahren",
+    sourceUrl: "https://www.ruggedyrange.com/stewart-island/aurora-australis/",
+  },
+];
+
+function DarkSkySection() {
+  return (
+    <section id="dark-sky" className="scroll-mt-24 bg-background">
+      <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
+        <div className="relative overflow-hidden rounded-xl border-l-4 border-primary bg-secondary/60 p-6 md:p-8">
+          <Badge className="absolute right-4 top-4 hidden bg-primary text-primary-foreground hover:bg-primary sm:inline-flex">
+            Dark Sky Sanctuary — IDA 2019
+          </Badge>
+          <div className="flex items-start gap-4">
+            <Sparkles className="mt-1 h-7 w-7 shrink-0 text-primary" aria-hidden />
+            <div className="flex-1">
+              <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
+                Rakiura — Land der leuchtenden Himmel
+              </h2>
+              <Badge className="mt-2 inline-flex bg-primary text-primary-foreground hover:bg-primary sm:hidden">
+                Dark Sky Sanctuary — IDA 2019
+              </Badge>
+              <p className="mt-3 leading-relaxed text-foreground/85">
+                Der Māori-Name Rakiura bedeutet „Land der leuchtenden Himmel". 2019 wurde Stewart
+                Island als 5. International Dark Sky Sanctuary der Welt ausgezeichnet — der
+                südlichste seiner Art, mit Messwerten nahe am theoretischen Maximum der Dunkelheit.
+                Mehrtägige Aurora-Hunting-Touren mit Guides, Teleskopen und Foto-Anleitung bieten
+                u. a. Viva Expeditions und Ruggedy Range an.
+              </p>
+              <a
+                href="https://www.stewartisland.co.nz/dark-sky-sanctuary/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex items-center gap-1 text-xs text-primary hover:text-accent"
+              >
+                Quelle: Stewart Island Promotion Association / IDA{" "}
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {auroraTours.map((t) => (
+            <Card key={t.id} className="overflow-hidden transition-shadow hover:shadow-lg">
+              <CardContent className="p-5">
+                <div className="flex items-start gap-3">
+                  <Telescope className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                  <h3 className="font-display text-lg font-bold leading-tight text-foreground">
+                    {t.operator}
+                  </h3>
+                </div>
+                <div className="mt-4 space-y-3 border-t border-border pt-3 text-sm">
+                  <div className="grid grid-cols-[1.25rem_5.5rem_1fr] items-start gap-x-2 gap-y-1">
+                    <Clock className="mt-0.5 h-4 w-4 text-primary" aria-hidden />
+                    <span className="font-medium text-foreground whitespace-nowrap">Dauer:</span>
+                    <span className="text-muted-foreground">{t.duration}</span>
+                  </div>
+                  <div className="grid grid-cols-[1.25rem_5.5rem_1fr] items-start gap-x-2 gap-y-1">
+                    <Wallet className="mt-0.5 h-4 w-4 text-primary" aria-hidden />
+                    <span className="font-medium text-foreground whitespace-nowrap">Preis:</span>
+                    <span className="text-muted-foreground">{t.priceRange}</span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    <strong className="font-medium text-foreground">Inklusive:</strong> {t.includes}
+                  </p>
+                  <p className="text-xs italic text-muted-foreground">{t.note}</p>
+                </div>
+                <div className="mt-4 border-t border-border pt-3 text-xs">
+                  <a
+                    href={t.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-primary hover:text-accent"
+                  >
+                    Zum Anbieter <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

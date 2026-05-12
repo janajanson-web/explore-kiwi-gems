@@ -334,46 +334,6 @@ function DarkSkySection() {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {auroraTours.map((t) => (
-            <Card key={t.id} className="overflow-hidden transition-shadow hover:shadow-lg">
-              <CardContent className="p-5">
-                <div className="flex items-start gap-3">
-                  <Telescope className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
-                  <h3 className="font-display text-lg font-bold leading-tight text-foreground">
-                    {t.operator}
-                  </h3>
-                </div>
-                <div className="mt-4 space-y-3 border-t border-border pt-3 text-sm">
-                  <div className="grid grid-cols-[1.25rem_5.5rem_1fr] items-start gap-x-2 gap-y-1">
-                    <Clock className="mt-0.5 h-4 w-4 text-primary" aria-hidden />
-                    <span className="font-medium text-foreground whitespace-nowrap">Dauer:</span>
-                    <span className="text-muted-foreground">{t.duration}</span>
-                  </div>
-                  <div className="grid grid-cols-[1.25rem_5.5rem_1fr] items-start gap-x-2 gap-y-1">
-                    <Wallet className="mt-0.5 h-4 w-4 text-primary" aria-hidden />
-                    <span className="font-medium text-foreground whitespace-nowrap">Preis:</span>
-                    <span className="text-muted-foreground">{t.priceRange}</span>
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    <strong className="font-medium text-foreground">Inklusive:</strong> {t.includes}
-                  </p>
-                  <p className="text-xs italic text-muted-foreground">{t.note}</p>
-                </div>
-                <div className="mt-4 border-t border-border pt-3 text-xs">
-                  <a
-                    href={t.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-primary hover:text-accent"
-                  >
-                    Zum Anbieter <ExternalLink className="h-3 w-3" />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
       </div>
     </section>
   );

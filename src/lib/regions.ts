@@ -21,6 +21,7 @@ import excWaitomo from "@/assets/excursion-waitomo.jpg";
 import excKiwiSpotting from "@/assets/excursion-kiwi-spotting.jpg";
 import excMasonBay from "@/assets/excursion-mason-bay.jpg";
 import excAuroraAustralis from "@/assets/excursion-aurora-australis.jpg";
+import excAuroraRuggedy from "@/assets/excursion-aurora-ruggedy.jpg";
 import foodMuttonbird from "@/assets/food-muttonbird.jpg";
 import foodSouthSeaHotel from "@/assets/food-south-sea-hotel.jpg";
 import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
@@ -541,6 +542,20 @@ export const regions: Region[] = [
           "https://vivaexpeditions.com/tours/new-zealand/stewart-island/stewart-island-dark-sky-delights-small-group-tour",
         imageQuery: "aurora-australis-stewart-island",
         image: excAuroraAustralis,
+      },
+      {
+        id: "ruggedy-range-dark-sky",
+        title: "Ruggedy Range™ — Dark Sky & Aurora Tour",
+        description:
+          "Geführte Dark-Sky-Beobachtung mit lokalem Astronomen (Alistair) inklusive Teleskop und Storytelling. Flexibel buchbar in kleinen Gruppen, optional kombinierbar mit Kiwi-Spotting oder Ulva-Island-Tour. Familiengeführt seit über 22 Jahren.",
+        effort: "easy",
+        duration: "Tages-/Einzeltour, flexibel",
+        priceRange: "auf Anfrage · kleine Gruppen, individuell",
+        tags: ["Aurora", "Dark Sky", "Teleskop"],
+        source: "Ruggedy Range",
+        sourceUrl: "https://www.ruggedyrange.com/stewart-island/aurora-australis/",
+        imageQuery: "aurora-australis-rakiura-night-sky",
+        image: excAuroraRuggedy,
       },
     ],
     foodAndWine: [

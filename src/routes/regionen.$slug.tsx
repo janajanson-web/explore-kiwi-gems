@@ -296,29 +296,6 @@ function RegionDetail() {
   );
 }
 
-const auroraTours = [
-  {
-    id: "viva-expeditions-dark-sky",
-    operator: "Viva Expeditions — Stewart Island Dark Sky Delights",
-    duration: "6 Tage / 5 Nächte (ab/bis Invercargill)",
-    priceRange: "€ 1.635 p. P. (NZD 3.230, EZ-Zuschlag NZD 885 / ~€ 448)",
-    includes:
-      "Kleingruppe, Aurora-Abend mit lokalem Astronomen, Ulva Island, Paterson Inlet Cruise, Kiwi-Spotting, alle Nächte",
-    note: "Mindestalter 18, Termine zwischen April und September um Neumond geplant",
-    sourceUrl:
-      "https://vivaexpeditions.com/tours/new-zealand/stewart-island/stewart-island-dark-sky-delights-small-group-tour",
-  },
-  {
-    id: "ruggedy-range-dark-sky",
-    operator: "Ruggedy Range™ — Dark Sky & Aurora Tour",
-    duration: "Tages-/Einzeltour, flexibel buchbar",
-    priceRange: "auf Anfrage (kleine Gruppen, individuell)",
-    includes:
-      "Geführte Dark-Sky-Beobachtung mit lokalem Astronomen (Alistair), inkl. Teleskop und Storytelling, optional kombinierbar mit Kiwi-Spotting oder Ulva-Island-Tour",
-    note: "Buchung möglichst frühzeitig empfohlen — kleines Familienunternehmen seit über 22 Jahren",
-    sourceUrl: "https://www.ruggedyrange.com/stewart-island/aurora-australis/",
-  },
-];
 
 function DarkSkySection() {
   return (

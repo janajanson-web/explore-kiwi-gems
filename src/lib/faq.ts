@@ -46,7 +46,10 @@ export const faqs: FaqEntry[] = [
   {
     q: "Wie funktioniert der Linksverkehr?",
     a: "In Neuseeland herrscht Linksverkehr. An Kreisverkehren hat das von rechts kommende Fahrzeug Vorfahrt. Viele Straßen sind schmal und kurvig – realistische Fahrzeiten einplanen.",
-    sources: [{ label: "NZ Transport Agency", url: "https://www.nzta.govt.nz/safety/driving-safely/visiting-drivers/" }],
+    sources: [
+      { label: "NZ Transport Agency", url: "https://www.nzta.govt.nz/safety/driving-safely/visiting-drivers/" },
+      { label: "Driving in New Zealand – German", url: "https://www.nzta.govt.nz/assets/resources/driving-in-nz/docs/driving-in-nz-german.pdf" },
+    ],
   },
   {
     q: "Welche Naturgefahren gibt es?",

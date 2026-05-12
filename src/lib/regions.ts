@@ -24,6 +24,7 @@ import foodMuttonbird from "@/assets/food-muttonbird.jpg";
 import foodSouthSeaHotel from "@/assets/food-south-sea-hotel.jpg";
 import excUlvaIsland from "@/assets/excursion-ulva-island.jpg";
 import excRakiuraTrack from "@/assets/excursion-rakiura-track.jpg";
+import excKawarauBungy from "@/assets/excursion-kawarau-bungy.jpg";
 
 export type Effort = "easy" | "moderate" | "challenging";
 
@@ -320,6 +321,20 @@ export const regions: Region[] = [
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/routeburn-track/",
         imageQuery: "routeburn-track-new-zealand",
         image: excRouteburn,
+      },
+      {
+        id: "kawarau-bridge-bungy",
+        title: "Kawarau Bridge Bungy (Queenstown)",
+        description:
+          "Der weltweit erste kommerzielle Bungy-Sprung — seit 1988 in Betrieb. 43 Meter freier Fall von der historischen Kawarau-Brücke über dem türkisfarbenen Kawarau River, mit optionalem Wassertouch. AJ Hackett Bungy ist Pionier und weltweiter Marktführer in Sachen Sicherheit.",
+        effort: "challenging",
+        duration: "ca. 2 Stunden (inkl. Anreise und Briefing)",
+        priceRange: "€ 130–140 (NZD 255–280, inkl. Foto/Video und T-Shirt)",
+        tags: ["Adrenalin", "Bungy"],
+        source: "AJ Hackett Bungy New Zealand",
+        sourceUrl: "https://www.bungy.co.nz/queenstown/kawarau-bungy-centre/kawarau-bridge-bungy/",
+        imageQuery: "Kawarau Bridge bungy jump Queenstown New Zealand",
+        image: excKawarauBungy,
       },
     ],
     foodAndWine: [

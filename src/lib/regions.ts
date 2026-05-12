@@ -543,6 +543,20 @@ export const regions: Region[] = [
         imageQuery: "aurora-australis-stewart-island",
         image: excAuroraAustralis,
       },
+      {
+        id: "ruggedy-range-dark-sky",
+        title: "Ruggedy Range™ — Dark Sky & Aurora Tour",
+        description:
+          "Geführte Dark-Sky-Beobachtung mit lokalem Astronomen (Alistair) inklusive Teleskop und Storytelling. Flexibel buchbar in kleinen Gruppen, optional kombinierbar mit Kiwi-Spotting oder Ulva-Island-Tour. Familiengeführt seit über 22 Jahren.",
+        effort: "easy",
+        duration: "Tages-/Einzeltour, flexibel",
+        priceRange: "auf Anfrage · kleine Gruppen, individuell",
+        tags: ["Aurora", "Dark Sky", "Teleskop"],
+        source: "Ruggedy Range",
+        sourceUrl: "https://www.ruggedyrange.com/stewart-island/aurora-australis/",
+        imageQuery: "aurora-australis-rakiura-night-sky",
+        image: excAuroraRuggedy,
+      },
     ],
     foodAndWine: [
       {

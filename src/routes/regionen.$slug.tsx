@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink, Clock, Wallet, Telescope, Sparkles } from "lucide-react";
+import { AlertTriangle, CloudRain, Info, ShieldAlert, Lightbulb, ExternalLink, Clock, Wallet, Sparkles } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -296,29 +296,6 @@ function RegionDetail() {
   );
 }
 
-const auroraTours = [
-  {
-    id: "viva-expeditions-dark-sky",
-    operator: "Viva Expeditions — Stewart Island Dark Sky Delights",
-    duration: "6 Tage / 5 Nächte (ab/bis Invercargill)",
-    priceRange: "€ 1.635 p. P. (NZD 3.230, EZ-Zuschlag NZD 885 / ~€ 448)",
-    includes:
-      "Kleingruppe, Aurora-Abend mit lokalem Astronomen, Ulva Island, Paterson Inlet Cruise, Kiwi-Spotting, alle Nächte",
-    note: "Mindestalter 18, Termine zwischen April und September um Neumond geplant",
-    sourceUrl:
-      "https://vivaexpeditions.com/tours/new-zealand/stewart-island/stewart-island-dark-sky-delights-small-group-tour",
-  },
-  {
-    id: "ruggedy-range-dark-sky",
-    operator: "Ruggedy Range™ — Dark Sky & Aurora Tour",
-    duration: "Tages-/Einzeltour, flexibel buchbar",
-    priceRange: "auf Anfrage (kleine Gruppen, individuell)",
-    includes:
-      "Geführte Dark-Sky-Beobachtung mit lokalem Astronomen (Alistair), inkl. Teleskop und Storytelling, optional kombinierbar mit Kiwi-Spotting oder Ulva-Island-Tour",
-    note: "Buchung möglichst frühzeitig empfohlen — kleines Familienunternehmen seit über 22 Jahren",
-    sourceUrl: "https://www.ruggedyrange.com/stewart-island/aurora-australis/",
-  },
-];
 
 function DarkSkySection() {
   return (
@@ -357,46 +334,6 @@ function DarkSkySection() {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {auroraTours.map((t) => (
-            <Card key={t.id} className="overflow-hidden transition-shadow hover:shadow-lg">
-              <CardContent className="p-5">
-                <div className="flex items-start gap-3">
-                  <Telescope className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
-                  <h3 className="font-display text-lg font-bold leading-tight text-foreground">
-                    {t.operator}
-                  </h3>
-                </div>
-                <div className="mt-4 space-y-3 border-t border-border pt-3 text-sm">
-                  <div className="grid grid-cols-[1.25rem_5.5rem_1fr] items-start gap-x-2 gap-y-1">
-                    <Clock className="mt-0.5 h-4 w-4 text-primary" aria-hidden />
-                    <span className="font-medium text-foreground whitespace-nowrap">Dauer:</span>
-                    <span className="text-muted-foreground">{t.duration}</span>
-                  </div>
-                  <div className="grid grid-cols-[1.25rem_5.5rem_1fr] items-start gap-x-2 gap-y-1">
-                    <Wallet className="mt-0.5 h-4 w-4 text-primary" aria-hidden />
-                    <span className="font-medium text-foreground whitespace-nowrap">Preis:</span>
-                    <span className="text-muted-foreground">{t.priceRange}</span>
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    <strong className="font-medium text-foreground">Inklusive:</strong> {t.includes}
-                  </p>
-                  <p className="text-xs italic text-muted-foreground">{t.note}</p>
-                </div>
-                <div className="mt-4 border-t border-border pt-3 text-xs">
-                  <a
-                    href={t.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-primary hover:text-accent"
-                  >
-                    Zum Anbieter <ExternalLink className="h-3 w-3" />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
       </div>
     </section>
   );

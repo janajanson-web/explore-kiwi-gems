@@ -197,6 +197,9 @@ function RegionDetail() {
         </div>
       </section>
 
+      {/* Stewart Island: Dark Sky Sanctuary */}
+      {r.slug === "stewart-island" && <DarkSkySection />}
+
       {/* Kulinarisches */}
       <section id="kulinarisches" className="scroll-mt-24 bg-secondary/40">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">

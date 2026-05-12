@@ -330,7 +330,7 @@ export const regions: Region[] = [
           "32 km Great Walk über drei Tage – durch Buchenwald, alpine Pässe und entlang glasklarer Bergseen. Hütten müssen Monate im Voraus gebucht werden.",
         effort: "challenging",
         duration: "3 Tage / 2 Nächte",
-        priceRange: "Hütte ca. € 60 (intl.) / € 40 (NZ) p. P./Nacht in der Saison · Transfer € 80–150",
+        priceRange: "Hütte ca. € 60 (intl.) / € 40 p. P./Nacht in der Saison · Transfer € 80–150",
         tags: ["Great Walk", "3 Tage"],
         source: "DOC",
         sourceUrl: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/routeburn-track/",

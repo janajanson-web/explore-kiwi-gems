@@ -18,13 +18,13 @@ function Imprint() {
 
       <section className="prose prose-sm mt-8 max-w-none text-foreground">
         <h2 className="mt-8 font-display text-xl font-bold">Diensteanbieter</h2>
-        <p>Max Mustermann<br />Musterstraße 12<br />10115 Berlin<br />Deutschland</p>
+        <p>Aufpoliert Markenmanufaktur<br />Inhaberin: Jana Janson<br />Sandforter Weg 67<br />59379 Selm<br />Deutschland</p>
 
         <h2 className="mt-8 font-display text-xl font-bold">Kontakt</h2>
         <p>E-Mail: kontakt@explore-newzealand.example<br />Telefon: +49 (0) 30 000000</p>
 
         <h2 className="mt-8 font-display text-xl font-bold">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
-        <p>Max Mustermann (Anschrift wie oben)</p>
+        <p>Jana Janson (Anschrift wie oben)</p>
 
         <h2 className="mt-8 font-display text-xl font-bold">Haftungsausschluss</h2>
         <p>Die Inhalte dieses Reiseblogs werden mit größter Sorgfalt erstellt, dennoch übernimmt der Anbieter keine Gewähr für Aktualität, Vollständigkeit und Richtigkeit. Reise-, Einreise- und Sicherheitsinformationen können sich kurzfristig ändern – bitte prüfe vor Reiseantritt die offiziellen Quellen (z. B. Auswärtiges Amt, Immigration New Zealand).</p>

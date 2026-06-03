@@ -21,7 +21,7 @@ function Imprint() {
         <p>Aufpoliert Markenmanufaktur<br />Inhaberin: Jana Janson<br />Sandforter Weg 67<br />59379 Selm<br />Deutschland</p>
 
         <h2 className="mt-8 font-display text-xl font-bold">Kontakt</h2>
-        <p>E-Mail: kontakt@explore-newzealand.example<br />Telefon: +49 (0) 30 000000</p>
+        <p>E-Mail: info@aufpoliert.eu<br />Telefon: +49 15221938425</p>
 
         <h2 className="mt-8 font-display text-xl font-bold">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
         <p>Jana Janson (Anschrift wie oben)</p>
